@@ -1,8 +1,6 @@
 require("dotenv").config();
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
-console.log("hello");
-
 const express = require("express");
 
 const db = require("./models");
@@ -23,12 +21,11 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-const routes = require("./controllers/menu_controller");
-
+const routes = require("./controllers/menu");
 app.use(routes);
 
 const PORT = process.env.PORT || 3000;
-db.sequelize.sync().then(function () {
+db.sequelize.sync({ force: false }).then(function () {
     app.listen(PORT, function () {
         console.log("App now listening on port:", PORT);
     });
