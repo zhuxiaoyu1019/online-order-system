@@ -55,5 +55,10 @@ router.get("/product", (req, res) => {
     });
 });
 
+router.get("/", function (req, res) {
+    var hbsObject = {}
+    return res.render("index", hbsObject);
+});
+
 
 module.exports = router;
