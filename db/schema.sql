@@ -7,14 +7,14 @@ USE dashboard;
 CREATE TABLE customer 
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR NOT NULL,
-    password VARCHAR NOT NULL,
-    address VARCHAR,
+    name VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    address VARCHAR(100),
     phone INT(11),
-    email VARCHAR
+    email VARCHAR(100)
 );
 
-CREATE TABLE order 
+CREATE TABLE orderNum
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE order_items
 CREATE TABLE category 
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE size 
@@ -66,7 +66,7 @@ CREATE TABLE add_on
 CREATE TABLE topping 
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR NOT NULL,
+    name VARCHAR(100) NOT NULL,
     price INT
 );
 
@@ -88,7 +88,7 @@ CREATE TABLE price
 CREATE TABLE img 
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR NOT NULL,
-    secure_url VARCHAR NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    secure_url VARCHAR(100) NOT NULL,
     cloudinary_id INT NOT NULL
 );
