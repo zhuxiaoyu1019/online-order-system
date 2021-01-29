@@ -1,7 +1,6 @@
 require("dotenv").config();
 const STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY;
 
-
 const express = require("express");
 
 const db = require("./models");
@@ -10,7 +9,9 @@ const app = express();
 
 app.use(express.static("public"));
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+    extended: true
+}));
 app.use(express.json());
 
 const exphbs = require("express-handlebars");

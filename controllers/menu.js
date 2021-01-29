@@ -29,6 +29,8 @@ router.get("/image", async (req, res) => {
     }
 });
 
+route.post("/product", (req, res) => {
 
+});
 
 module.exports = router;
