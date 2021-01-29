@@ -21,8 +21,11 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-const routes = require("./controllers/menu");
-app.use(routes);
+const menuRoutes = require("./controllers/menu_controller");
+app.use(menuRoutes);
+
+const frontEndRoutes = require("./controllers/frontend_controller");
+app.use(frontEndRoutes);
 
 const PORT = process.env.PORT || 3000;
 db.sequelize.sync({ force: false }).then(function () {
