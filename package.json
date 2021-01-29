@@ -18,9 +18,11 @@
   },
   "homepage": "https://github.com/zhuxiaoyu1019/restaurant-online-ordering#readme",
   "dependencies": {
+    "cloudinary": "^1.23.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
+    "multer": "^1.4.2",
     "mysql2": "^2.2.5",
     "sequelize": "^6.5.0"
   }
