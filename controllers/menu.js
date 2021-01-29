@@ -10,7 +10,7 @@ router.post("/image", upload.single("image"), async (req, res) => {
         Image.create({
             name: req.body.name,
             secure_url: result.secure_url,
-            cloudinary_id: result.cloudinary_id
+            cloudinary_id: result.public_id
         }).then(data => {
             res.json(data);
         });
@@ -29,8 +29,8 @@ router.get("/image", async (req, res) => {
     }
 });
 
-route.post("/product", (req, res) => {
+// route.post("/product", (req, res) => {
 
-});
+// });
 
 module.exports = router;

@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    const Topping = sequelize.define("Topping", {
+    const Extra = sequelize.define("Extra", {
         name: DataTypes.STRING,
         price: {
             type: DataTypes.INTEGER,
@@ -10,11 +10,11 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    Topping.associate = function (models) {
-        Topping.hasMany(models.AddOn, {
+    Extra.associate = function (models) {
+        Extra.hasMany(models.ProductAddOn, {
             onDelete: "cascade"
         });
     };
 
-    return Topping;
+    return Extra;
 };
