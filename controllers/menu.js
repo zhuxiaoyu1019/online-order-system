@@ -29,8 +29,14 @@ router.get("/image", async (req, res) => {
     }
 });
 
-// route.post("/product", (req, res) => {
+router.get("/", function (req, res) {
+    var hbsObject = {}
+    return res.render("index", hbsObject);
 
-// });
+    // });
+
+    // route.post("/product", (req, res) => {
+
+});
 
 module.exports = router;
