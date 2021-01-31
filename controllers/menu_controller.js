@@ -82,13 +82,13 @@ router.post("/product", (req, res) => {
     });
 });
 
-router.get("/product", (req, res) => {
-    Product.findAll().then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// router.get("/product", (req, res) => {
+//     Product.findAll().then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 router.put("/product", (req, res) => {
     const { id, name, description, ImageId, CategoryId } = req.body;
@@ -132,13 +132,13 @@ router.post("/category", (req, res) => {
     });
 });
 
-router.get("/category", (req, res) => {
-    Category.findAll().then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// router.get("/category", (req, res) => {
+//     Category.findAll().then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 router.put("/category", (req, res) => {
     const { name, id } = req.body;
@@ -180,13 +180,13 @@ router.post("/extra", (req, res) => {
     });
 });
 
-router.get("/extra", (req, res) => {
-    Extra.findAll().then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// router.get("/extra", (req, res) => {
+//     Extra.findAll().then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 router.put("/extra", (req, res) => {
     const { name, price, id } = req.body;
@@ -230,13 +230,13 @@ router.post("/price", (req, res) => {
     });
 });
 
-router.get("/price", (req, res) => {
-    Price.findAll().then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// router.get("/price", (req, res) => {
+//     Price.findAll().then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 router.put("/price", (req, res) => {
     const { ProductId, SizeId, price } = req.body;
