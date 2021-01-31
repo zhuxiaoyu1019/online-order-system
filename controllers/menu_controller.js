@@ -9,7 +9,9 @@ const cloundinary = require("../config/cloundinary");
 const upload = require("../config/multer");
 
 router.post("/image", upload.single("image"), async (req, res) => {
-    const { name } = req.body;
+    const {
+        name
+    } = req.body;
     try {
         const result = await cloundinary.uploader.upload(req.file.path);
         Image.create({
@@ -69,7 +71,16 @@ router.delete("/image", async (req, res) => {
 })
 
 router.post("/product", (req, res) => {
+<<<<<<< HEAD
+    const {
+        name,
+        description,
+        imageId,
+        categoryId
+    } = req.body;
+=======
     const { name, description, ImageId, CategoryId } = req.body;
+>>>>>>> development
     Product.create({
         name,
         description,
@@ -82,6 +93,10 @@ router.post("/product", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+router.get("/product", (req, res) => {
+    Product.findAll().then(data => {
+=======
 // router.get("/product", (req, res) => {
 //     Product.findAll().then(data => {
 //         res.json(data);
@@ -115,6 +130,7 @@ router.delete("/product", (req, res) => {
             id
         }
     }).then(data => {
+>>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
@@ -122,7 +138,14 @@ router.delete("/product", (req, res) => {
 });
 
 router.post("/category", (req, res) => {
+<<<<<<< HEAD
+    const {
+        name,
+        productId
+    } = req.body;
+=======
     const { name } = req.body;
+>>>>>>> development
     Category.create({
         name
     }).then(data => {
@@ -132,6 +155,10 @@ router.post("/category", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+router.get("/api/category", (req, res) => {
+    Category.findAll().then(data => {
+=======
 // router.get("/category", (req, res) => {
 //     Category.findAll().then(data => {
 //         res.json(data);
@@ -149,6 +176,7 @@ router.put("/category", (req, res) => {
             id
         }
     }).then(data => {
+>>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
@@ -169,7 +197,14 @@ router.delete("/category", (req, res) => {
 })
 
 router.post("/extra", (req, res) => {
+<<<<<<< HEAD
+    const {
+        name,
+        price
+    } = req.body
+=======
     const { name, price } = req.body;
+>>>>>>> development
     Extra.create({
         name,
         price: price.replace(".", "")
@@ -180,6 +215,10 @@ router.post("/extra", (req, res) => {
     });
 });
 
+<<<<<<< HEAD
+router.get("/extra", (req, res) => {
+    Extra.findAll().then(data => {
+=======
 // router.get("/extra", (req, res) => {
 //     Extra.findAll().then(data => {
 //         res.json(data);
@@ -261,6 +300,7 @@ router.delete("/price", (req, res) => {
             id
         }
     }).then(data => {
+>>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
