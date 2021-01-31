@@ -9,7 +9,9 @@ const cloudinary = require("../config/cloundinary");
 const upload = require("../config/multer");
 
 router.post("/image", upload.single("image"), async (req, res) => {
-    const { name } = req.body;
+    const {
+        name
+    } = req.body;
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
         Image.create({
@@ -39,14 +41,19 @@ router.get("/image", async (req, res) => {
 });
 
 router.post("/product", (req, res) => {
-    const { name, description, imageId, categoryId } = req.body;
+    const {
+        name,
+        description,
+        imageId,
+        categoryId
+    } = req.body;
     Product.create({
         name,
         description,
         imageId,
         categoryId
     }).then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
@@ -54,39 +61,45 @@ router.post("/product", (req, res) => {
 
 router.get("/product", (req, res) => {
     Product.findAll().then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
 });
 
 router.post("/category", (req, res) => {
-    const { name, productId } = req.body;
+    const {
+        name,
+        productId
+    } = req.body;
     Category.create({
         name,
         productId
     }).then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
 });
 
-router.get("/category", (req, res) => {
+router.get("/api/category", (req, res) => {
     Category.findAll().then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
 });
 
 router.post("/extra", (req, res) => {
-    const { name, price } = req.body
+    const {
+        name,
+        price
+    } = req.body
     Extra.create({
         name,
         price: price.toString().replace(".", "")
     }).then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
@@ -94,7 +107,7 @@ router.post("/extra", (req, res) => {
 
 router.get("/extra", (req, res) => {
     Extra.findAll().then(data => {
-        res.send(data);
+        res.json(data);
     }).catch(err => {
         res.status(500).json(err);
     });
