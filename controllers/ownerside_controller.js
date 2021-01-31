@@ -1,6 +1,9 @@
 const router = require("express").Router();
 const db = require("../models");
-const Category = require("../models/Category");
+const Product = db.Product;
+const Category = db.Category;
+const Extra = db.Extra;
+const Price = db.Price;
 
 router.get("/", function (req, res) {
     var hbsObject = {}
