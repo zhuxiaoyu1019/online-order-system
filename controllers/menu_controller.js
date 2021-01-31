@@ -41,9 +41,15 @@ router.get("/image", async (req, res) => {
 });
 
 router.put("/image", upload.single("image"), async (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     try {
-        const image = await Image.findOne({ where: { id } });
+        const image = await Image.findOne({
+            where: {
+                id
+            }
+        });
         await cloundinary.uploader.destroy(image.dataValues.cloundinary_id);
         const result = await cloundinary.uploader.upload(req.file.path);
         const newImg = {
@@ -51,7 +57,11 @@ router.put("/image", upload.single("image"), async (req, res) => {
             secure_url: result.secure_url || image.dataValues.secure_url,
             cloundinary_id: result.public_id || image.dataValues.cloundinary_id
         }
-        const update = await Image.update(newImg, { where: { id } });
+        const update = await Image.update(newImg, {
+            where: {
+                id
+            }
+        });
         res.json(update);
     } catch (err) {
         res.status(500).json(err);
@@ -59,11 +69,21 @@ router.put("/image", upload.single("image"), async (req, res) => {
 });
 
 router.delete("/image", async (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     try {
-        const image = await Image.findOne({ where: { id } });
+        const image = await Image.findOne({
+            where: {
+                id
+            }
+        });
         await cloundinary.uploader.destroy(image.dataValues.cloundinary_id);
-        const deleteImage = await Image.destroy({ where: { id } });
+        const deleteImage = await Image.destroy({
+            where: {
+                id
+            }
+        });
         res.json(deleteImage);
     } catch (err) {
         res.status(500).json(err);
@@ -71,16 +91,12 @@ router.delete("/image", async (req, res) => {
 })
 
 router.post("/product", (req, res) => {
-<<<<<<< HEAD
     const {
         name,
         description,
-        imageId,
-        categoryId
+        ImageId,
+        CategoryId
     } = req.body;
-=======
-    const { name, description, ImageId, CategoryId } = req.body;
->>>>>>> development
     Product.create({
         name,
         description,
@@ -93,10 +109,6 @@ router.post("/product", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.get("/product", (req, res) => {
-    Product.findAll().then(data => {
-=======
 // router.get("/product", (req, res) => {
 //     Product.findAll().then(data => {
 //         res.json(data);
@@ -106,7 +118,13 @@ router.get("/product", (req, res) => {
 // });
 
 router.put("/product", (req, res) => {
-    const { id, name, description, ImageId, CategoryId } = req.body;
+    const {
+        id,
+        name,
+        description,
+        ImageId,
+        CategoryId
+    } = req.body;
     Product.update({
         name,
         description,
@@ -124,13 +142,14 @@ router.put("/product", (req, res) => {
 });
 
 router.delete("/product", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Product.destroy({
         where: {
             id
         }
     }).then(data => {
->>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
@@ -138,14 +157,9 @@ router.delete("/product", (req, res) => {
 });
 
 router.post("/category", (req, res) => {
-<<<<<<< HEAD
     const {
-        name,
-        productId
+        name
     } = req.body;
-=======
-    const { name } = req.body;
->>>>>>> development
     Category.create({
         name
     }).then(data => {
@@ -155,10 +169,6 @@ router.post("/category", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.get("/api/category", (req, res) => {
-    Category.findAll().then(data => {
-=======
 // router.get("/category", (req, res) => {
 //     Category.findAll().then(data => {
 //         res.json(data);
@@ -168,7 +178,10 @@ router.get("/api/category", (req, res) => {
 // });
 
 router.put("/category", (req, res) => {
-    const { name, id } = req.body;
+    const {
+        name,
+        id
+    } = req.body;
     Category.update({
         name
     }, {
@@ -176,7 +189,6 @@ router.put("/category", (req, res) => {
             id
         }
     }).then(data => {
->>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
@@ -184,7 +196,9 @@ router.put("/category", (req, res) => {
 });
 
 router.delete("/category", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Category.destroy({
         where: {
             id
@@ -197,14 +211,10 @@ router.delete("/category", (req, res) => {
 })
 
 router.post("/extra", (req, res) => {
-<<<<<<< HEAD
     const {
         name,
         price
-    } = req.body
-=======
-    const { name, price } = req.body;
->>>>>>> development
+    } = req.body;
     Extra.create({
         name,
         price: price.replace(".", "")
@@ -215,10 +225,6 @@ router.post("/extra", (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-router.get("/extra", (req, res) => {
-    Extra.findAll().then(data => {
-=======
 // router.get("/extra", (req, res) => {
 //     Extra.findAll().then(data => {
 //         res.json(data);
@@ -228,7 +234,11 @@ router.get("/extra", (req, res) => {
 // });
 
 router.put("/extra", (req, res) => {
-    const { name, price, id } = req.body;
+    const {
+        name,
+        price,
+        id
+    } = req.body;
     Extra.update({
         name,
         price: price.replace(".", "")
@@ -244,7 +254,9 @@ router.put("/extra", (req, res) => {
 });
 
 router.delete("/extra", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Extra.destroy({
         where: {
             id
@@ -257,7 +269,11 @@ router.delete("/extra", (req, res) => {
 });
 
 router.post("/price", (req, res) => {
-    const { ProductId, SizeId, price } = req.body;
+    const {
+        ProductId,
+        SizeId,
+        price
+    } = req.body;
     Price.create({
         ProductId,
         SizeId,
@@ -278,7 +294,11 @@ router.post("/price", (req, res) => {
 // });
 
 router.put("/price", (req, res) => {
-    const { ProductId, SizeId, price } = req.body;
+    const {
+        ProductId,
+        SizeId,
+        price
+    } = req.body;
     Price.update({
         price: price.replace(".", "")
     }, {
@@ -294,13 +314,14 @@ router.put("/price", (req, res) => {
 });
 
 router.delete("/price", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Price.destroy({
         where: {
             id
         }
     }).then(data => {
->>>>>>> development
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
