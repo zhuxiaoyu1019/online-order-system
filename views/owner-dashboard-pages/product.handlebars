@@ -1,0 +1,57 @@
+{{!-- {{#> nav/dashboard-nav}} --}}
+{{!-- {{#> nav/customer-nav}} --}}
+
+<h1>Products</h1>
+
+<div class="divider"></div>
+<div class="section">
+    <h3>Add a product</h3>
+    <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Product Name</label>
+                </div>
+            </div>
+            <div class="row">
+                {{!-- update to import image --}}
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Image</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Description</label>
+                </div>
+            </div>
+            <div class="input-field col s12">
+                <select>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>Select Category</label>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="divider"></div>
+
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Saved Products</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each categories}}
+        <tr>
+            <td>name {{name}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
