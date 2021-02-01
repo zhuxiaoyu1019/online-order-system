@@ -8,6 +8,9 @@ const Price = db.Price;
 const cloundinary = require("../config/cloundinary");
 const upload = require("../config/multer");
 
+// CRUD functionality for owner dashboard to update the database
+
+// product page - upload image 
 router.post("/image", upload.single("image"), async (req, res) => {
     const {
         name
@@ -28,6 +31,7 @@ router.post("/image", upload.single("image"), async (req, res) => {
     }
 });
 
+// product page - get all images
 router.get("/image", async (req, res) => {
     try {
         Image.findAll().then(data => {
@@ -40,10 +44,17 @@ router.get("/image", async (req, res) => {
     }
 });
 
+// product page - update or change image
 router.put("/image", upload.single("image"), async (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     try {
-        const image = await Image.findOne({ where: { id } });
+        const image = await Image.findOne({
+            where: {
+                id
+            }
+        });
         await cloundinary.uploader.destroy(image.dataValues.cloundinary_id);
         const result = await cloundinary.uploader.upload(req.file.path);
         const newImg = {
@@ -51,31 +62,47 @@ router.put("/image", upload.single("image"), async (req, res) => {
             secure_url: result.secure_url || image.dataValues.secure_url,
             cloundinary_id: result.public_id || image.dataValues.cloundinary_id
         }
-        const update = await Image.update(newImg, { where: { id } });
+        const update = await Image.update(newImg, {
+            where: {
+                id
+            }
+        });
         res.json(update);
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
+// product page - delete image
 router.delete("/image", async (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     try {
-        const image = await Image.findOne({ where: { id } });
+        const image = await Image.findOne({
+            where: {
+                id
+            }
+        });
         await cloundinary.uploader.destroy(image.dataValues.cloundinary_id);
-        const deleteImage = await Image.destroy({ where: { id } });
+        const deleteImage = await Image.destroy({
+            where: {
+                id
+            }
+        });
         res.json(deleteImage);
     } catch (err) {
         res.status(500).json(err);
     };
 })
 
+// product page post new
 router.post("/product", (req, res) => {
     const {
         name,
         description,
-        imageId,
-        categoryId
+        ImageId,
+        CategoryId
     } = req.body;
     Product.create({
         name,
@@ -97,8 +124,15 @@ router.post("/product", (req, res) => {
 //     });
 // });
 
+//product page - update a product 
 router.put("/product", (req, res) => {
-    const { id, name, description, ImageId, CategoryId } = req.body;
+    const {
+        id,
+        name,
+        description,
+        ImageId,
+        CategoryId
+    } = req.body;
     Product.update({
         name,
         description,
@@ -115,8 +149,11 @@ router.put("/product", (req, res) => {
     });
 });
 
+// product page - delete a product
 router.delete("/product", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Product.destroy({
         where: {
             id
@@ -128,8 +165,12 @@ router.delete("/product", (req, res) => {
     });
 });
 
+
+// category page - create new category 
 router.post("/category", (req, res) => {
-    const { name } = req.body;
+    const {
+        name
+    } = req.body;
     Category.create({
         name
     }).then(data => {
@@ -147,8 +188,12 @@ router.post("/category", (req, res) => {
 //     });
 // });
 
+// category page - update category
 router.put("/category", (req, res) => {
-    const { name, id } = req.body;
+    const {
+        name,
+        id
+    } = req.body;
     Category.update({
         name
     }, {
@@ -162,8 +207,11 @@ router.put("/category", (req, res) => {
     });
 });
 
+//category page - delete category
 router.delete("/category", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Category.destroy({
         where: {
             id
@@ -175,6 +223,7 @@ router.delete("/category", (req, res) => {
     });
 })
 
+// extras page - create new extra
 router.post("/extra", (req, res) => {
     const {
         name,
@@ -198,8 +247,13 @@ router.post("/extra", (req, res) => {
 //     });
 // });
 
+// extra page - update extra item
 router.put("/extra", (req, res) => {
-    const { name, price, id } = req.body;
+    const {
+        name,
+        price,
+        id
+    } = req.body;
     Extra.update({
         name,
         price: price.replace(".", "")
@@ -214,8 +268,11 @@ router.put("/extra", (req, res) => {
     });
 });
 
+// extra page - update extra item 
 router.delete("/extra", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Extra.destroy({
         where: {
             id
@@ -227,8 +284,13 @@ router.delete("/extra", (req, res) => {
     });
 });
 
+// price page - create a new price 
 router.post("/price", (req, res) => {
-    const { ProductId, SizeId, price } = req.body;
+    const {
+        ProductId,
+        SizeId,
+        price
+    } = req.body;
     Price.create({
         ProductId,
         SizeId,
@@ -248,8 +310,13 @@ router.post("/price", (req, res) => {
 //     });
 // });
 
+// price page - update price 
 router.put("/price", (req, res) => {
-    const { ProductId, SizeId, price } = req.body;
+    const {
+        ProductId,
+        SizeId,
+        price
+    } = req.body;
     Price.update({
         price: price.replace(".", "")
     }, {
@@ -264,8 +331,11 @@ router.put("/price", (req, res) => {
     });
 });
 
+// price page - delete price 
 router.delete("/price", (req, res) => {
-    const { id } = req.body;
+    const {
+        id
+    } = req.body;
     Price.destroy({
         where: {
             id

@@ -1,0 +1,32 @@
+<h1>Extras</h1>
+
+<div class="divider"></div>
+<div class="section">
+
+    <div class="row">
+        <form class="col s12" id="extra-input">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="extra-name" type="text">
+                    <label for="extra-name">Add New Extra Item</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="divider"></div>
+
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Saved Extras</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each extras}}
+        <tr>
+            <td>{{name}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
