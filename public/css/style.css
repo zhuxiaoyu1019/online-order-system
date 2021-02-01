@@ -3,6 +3,7 @@ body {
 }
 
 
+/*Owner Dashboard*/
 
 .dashboard-header {
     text-align: center;
@@ -19,8 +20,6 @@ body {
     float: right;
 }
 
-
-
 .table-items {
     width: 70%;
     padding-right: 20%;
@@ -29,3 +28,15 @@ body {
 .delete-button {
     float: right
 }
+
+/*Customer Home Page*/
+
+
+
+/* Navbar*/
+
+
+
+/* Login */
+
+
