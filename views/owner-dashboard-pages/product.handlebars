@@ -1,57 +1,69 @@
-{{!-- {{#> nav/dashboard-nav}} --}}
-{{!-- {{#> nav/customer-nav}} --}}
+<div class="row">
+    <div class="col s6 back-button">
+        <a href='/dashboard' class="btn-floating btn-large waves-effect waves-light red"><i
+                class="material-icons large">chevron_left</i></a>
+    </div>
+    <div class="col s6">
+        <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
+                class="material-icons large">queue_play_next</i></a>
+    </div>
+</div>
 
-<h1>Products</h1>
+<h1 class="dashboard-header">Menu Items and Products</h1>
 
 <div class="divider"></div>
 <div class="section">
-    <h3>Add a product</h3>
     <div class="row">
-        <form class="col s12">
-            <div class="row">
+        <div class="col s4">
+            <form class="col s12">
                 <div class="input-field col s12">
                     <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Product Name</label>
+                    <label for="textarea1">Search...</label>
                 </div>
-            </div>
-            <div class="row">
-                {{!-- update to import image --}}
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Image</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea"></textarea>
-                    <label for="textarea1">Description</label>
-                </div>
-            </div>
+            </form>
+        </div>
+        <div class="col s4">
             <div class="input-field col s12">
                 <select>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
+                    <option value="1">Pizza</option>
+                    <option value="2">Stix</option>
+                    <option value="3">Salads</option>
+                    <option value="4">Submarines</option>
+                    <option value="5">Pasta and Wings</option>
+                    <option value="6">Sides and Extras</option>
+                    <option value="7">Merchandise and Other</option>
                 </select>
                 <label>Select Category</label>
             </div>
-
-        </form>
+        </div>
+        <div class="col s4">
+            <button class="btn waves-effect waves-light" id="new-product-btn" type="submit" name="action">Add New Item
+                <i class="material-icons right">add</i>
+            </button>
+        </div>
     </div>
+</div>
 </div>
 <div class="divider"></div>
 
 <table class="highlight">
     <thead>
         <tr>
-            <th>Saved Products</th>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>In Stock</th>
+            <th>Size</th>
+            <th>Price</th>
+            <th>Categories</th>
+            <th>Image</th>
         </tr>
     </thead>
     <tbody>
-        {{#each categories}}
+        {{#each products}}
         <tr>
-            <td>name {{name}}</td>
-            <td>image {{Image.secure_url}}</td>
+            <td> {{name}}</td>
+            <td> {{description}}</td>
+            <td> {{in_stock}}</td>
         </tr>
         {{/each}}
     </tbody>

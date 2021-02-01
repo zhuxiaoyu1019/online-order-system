@@ -11,6 +11,11 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Extra.associate = function (models) {
+        Extra.belongsTo(models.Catgegory, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
         Extra.hasMany(models.ProductAddOn, {
             onDelete: "cascade"
         });

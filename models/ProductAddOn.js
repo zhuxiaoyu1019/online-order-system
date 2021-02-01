@@ -7,9 +7,6 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: false
       }
     });
-  };
-
-  ProductAddOn.associate = function (models) {
     ProductAddOn.belongsTo(models.Product, {
       foreignKey: {
         allowNull: false
