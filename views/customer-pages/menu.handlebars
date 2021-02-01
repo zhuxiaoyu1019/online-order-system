@@ -2,51 +2,58 @@
 
 
 {{!Here's we add the menu category buttons}}
-<a class="waves-effect waves-light btn-large">All Pizza</a>
-
-<a class="waves-effect waves-light btn-large">Submarines</a>
-
-<a class="waves-effect waves-light btn-large">Salads</a>
-
-<a class="waves-effect waves-light btn-large">Pasta</a>
-
-<a class="waves-effect waves-light btn-large">Wings</a>
-
-<a class="waves-effect waves-light btn-large">Stix</a>
-
-
-
-{{!Cards}}
 <div class="row">
 
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s3"><a href="#test1">Test 1</a></li>
-      <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-      <li class="tab col s3"><a href="#test4">Test 4</a></li>
+      <li class="tab col s3"><a href="#test1">Pizza</a></li>
+      <li class="tab col s3"><a class="active" href="#test2">Submarines</a></li>
+      <li class="tab col s3"><a href="#test3">Salads</a></li>
+      <li class="tab col s3"><a href="#test4">Wings</a></li>
+      <li class="tab col s3"><a href="#test5">Stix</a></li>
     </ul>
   </div>
-  <div id="test1" class="col s12">
-    <h1>pizza</h1>
-  </div>
-  <div id="test2" class="col s12">
-    <h1>sub</h1>
-  </div>
-  <div id="test4" class="col s12">Test 4</div>
-</div>
 
-<div class="row">
-  <div class="col s3 m6 menu-item-card">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <span class="card-title"></span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Add</i></a>
-      </div>
-      <div class="card-content">
-        <p>I am a very simple card.</p>
+  <div id="test1" class="col s12">
+    <h1>Pizza</h1>
+  </div>
+
+  <div id="test2" class="col s12">
+    <h1>Submarines</h1>
+  </div>
+
+  <div id="test3" class="col s12">
+    <h1>Salads</h1>
+  </div>
+
+  <div id="test4" class="col s12">
+    <h1>Wings</h1>
+  </div>
+
+  <div id="test5" class="col s12">
+    <h1>Stix</h1>
+  </div>
+
+
+
+  {{!Cards}}
+
+  <div class="row">
+    <div class="col s3 m4 menu-item-card">
+      <div class="card">
+        <div class="card-image">
+
+          {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
+          <img src="https://images.unsplash.com/photo-1544982503-9f984c14501a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1834&q=80">
+
+          <span class="card-title"> {{Product}}</span>
+
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Add</i></a>
+        </div>
+        <div class="card-content">
+          <p>I am a menu item..</p>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
