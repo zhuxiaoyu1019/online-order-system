@@ -116,7 +116,6 @@ router.post("/product", (req, res) => {
     });
 });
 
-
 // router.get("/product", (req, res) => {
 //     Product.findAll().then(data => {
 //         res.json(data);

@@ -1,6 +1,13 @@
 const router = require("express").Router();
+const db = require("../models");
+
 
 router.get("/menu", (req, res) => {
+    // db.Product.findAll({
+    //     include: [db.Category, db.Image]
+    // }).then(data => {
+    //     res.json(data)
+    // })
     var hbsObject = {}
     return res.render("./customer-pages/menu", hbsObject);
 });
