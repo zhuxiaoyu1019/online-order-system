@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s6 back-button">
-        <a href='/dashboard' class="btn-floating btn-large waves-effect waves-light red"><i
+        <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
                 class="material-icons large">chevron_left</i></a>
     </div>
     <div class="col s6">
@@ -18,7 +18,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="category-name" type="text">
-                    <label for="category-name">Add New Category</label>
+                    <label for="category-name">Add New Product Add On</label>
                 </div>
             </div>
         </form>
@@ -29,11 +29,11 @@
 <table class="highlight">
     <thead>
         <tr>
-            <th>Saved Categories</th>
+            <th>Saved Product Add Ons</th>
         </tr>
     </thead>
     <tbody>
-        {{#each categories}}
+        {{#each productAddOns}}
         <tr>
             <td>{{name}}</td>
         </tr>

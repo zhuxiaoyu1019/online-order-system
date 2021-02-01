@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s6 back-button">
-        <a href='/dashboard' class="btn-floating btn-large waves-effect waves-light red"><i
+        <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
                 class="material-icons large">chevron_left</i></a>
     </div>
     <div class="col s6">
@@ -37,7 +37,8 @@
             </div>
         </div>
         <div class="col s4">
-            <button class="btn waves-effect waves-light" id="new-product-btn" type="submit" name="action">Add New Item
+            <button class="btn waves-effect waves-light" id="new-product-btn" type="submit" name="action">
+                <a href='/pizzacutter/dashboard/product-update'></a>Add New Item
                 <i class="material-icons right">add</i>
             </button>
         </div>
@@ -56,6 +57,7 @@
             <th>Price</th>
             <th>Categories</th>
             <th>Image</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -64,6 +66,12 @@
             <td> {{name}}</td>
             <td> {{description}}</td>
             <td> {{in_stock}}</td>
+            <td> {{size}}</td>
+            <td> {{price}}</td>
+            <td> {{category}}</td>
+            <td> {{secure_url}}</td>
+            <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id={{id}}>delete</i></a></td>
         </tr>
         {{/each}}
     </tbody>

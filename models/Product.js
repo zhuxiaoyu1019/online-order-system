@@ -15,6 +15,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Product.associate = function (models) {
+        Product.hasMany(models.Price);
         Product.belongsTo(models.Category, {
             foreignKey: {
                 allowNull: false
@@ -27,17 +28,17 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
 
-    Product.associate = function (models) {
-        // Product.belongsTo(models.Image, {
-        //     foreignKey: {
-        //         allowNull: false
-        //     }
-        // });
-    };
+    // Product.associate = function (models) {
+    //     // Product.belongsTo(models.Image, {
+    //     //     foreignKey: {
+    //     //         allowNull: false
+    //     //     }
+    //     // });
+    // };
 
-    Product.associate = function (models) {
-        Product.hasMany(models.Price);
-    };
+    // Product.associate = function (models) {
+    //     Product.hasMany(models.Price);
+    // };
 
     return Product;
 };

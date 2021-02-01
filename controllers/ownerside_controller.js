@@ -1,10 +1,10 @@
 const router = require("express").Router();
 const db = require("../models");
 
-// router.get("/", function (req, res) {
-//     var hbsObject = {}
-//     return res.render("owner-dash-home", hbsObject);
-// });
+router.get("/", function (req, res) {
+    var hbsObject = {}
+    return res.render("owner-dash-home", hbsObject);
+});
 
 router.get("/category", function (req, res) {
     db.Category.findAll().then(function (data) {
@@ -58,7 +58,10 @@ router.get("/price", function (req, res) {
 });
 
 router.get("/product", function (req, res) {
-    db.Product.findAll().then(function (data) {
+    db.Product.findAll({
+        include: [db.Image]
+    }).then(function (data) {
+        console.log(data)
         var productArray = []
         data.forEach(element => {
             var item = element.toJSON()
@@ -69,6 +72,24 @@ router.get("/product", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/product", hbsObject);
+    })
+});
+
+router.get("/product-update", function (req, res) {
+    db.Product.findAll({
+        include: [db.Image]
+    }).then(function (data) {
+        console.log(data)
+        var productArray = []
+        data.forEach(element => {
+            var item = element.toJSON()
+            productArray.push(item)
+        });
+        var hbsObject = {
+            products: productArray
+        }
+        console.log(hbsObject)
+        return res.render("owner-dashboard-pages/product-edit-new", hbsObject);
     })
 });
 
