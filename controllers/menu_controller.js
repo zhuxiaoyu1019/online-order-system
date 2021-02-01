@@ -5,8 +5,11 @@ const Product = db.Product;
 const Category = db.Category;
 const Extra = db.Extra;
 const Price = db.Price;
+const Size = db.Size;
+const ProductAddOn = db.ProductAddOn;
 const cloundinary = require("../config/cloundinary");
 const upload = require("../config/multer");
+
 
 // CRUD functionality for owner dashboard to update the database
 
@@ -216,7 +219,7 @@ router.post("/extra", (req, res) => {
     } = req.body;
     Extra.create({
         name,
-        price: price.replace(".", "")
+        price: price.replace(".", "") // 6.2 to 62
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -306,6 +309,110 @@ router.delete("/price/:id", (req, res) => {
         id
     } = req.params;
     Price.destroy({
+        where: {
+            id
+        }
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// size page - create new size
+
+router.post("/size", (req, res) => {
+    const {
+        size
+    } = req.body;
+    Size.create({
+        size
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// size page - update size
+
+router.put("/size/:id", (req, res) => {
+    const {
+        size
+    } = req.body;
+    Size.update({
+        size
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// size page - delete size 
+router.delete("/size/:id", (req, res) => {
+    const {
+        id
+    } = req.params;
+    Size.destroy({
+        where: {
+            id
+        }
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// productAddon page - create productAddOn
+
+router.post("/productAddOn", (req, res) => {
+    const {
+        ProductId,
+        ExtraId
+    } = req.body;
+    ProductAddOn.create({
+        ProductId,
+        ExtraId
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// productAddOn page - update productAddOn
+
+router.put("/productAddOn/:id", (req, res) => {
+    const {
+        ProductId,
+        ExtraId
+    } = req.body;
+    ProductAddOn.update({
+        ProductId,
+        ExtraId
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(data => {
+        res.json(data);
+    }).catch(err => {
+        res.status(500).json(err);
+    });
+});
+
+// productAddOn page - delete productAddOn 
+router.delete("/productAddOn/:id", (req, res) => {
+    const {
+        id
+    } = req.params;
+    ProductAddOn.destroy({
         where: {
             id
         }
