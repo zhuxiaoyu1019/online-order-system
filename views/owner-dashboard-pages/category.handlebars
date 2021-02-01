@@ -1,8 +1,19 @@
-<h1>Categories</h1>
+<div class="row">
+    <div class="col s6 back-button">
+        <a href='/dashboard' class="btn-floating btn-large waves-effect waves-light red"><i
+                class="material-icons large">chevron_left</i></a>
+    </div>
+    <div class="col s6">
+        <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
+                class="material-icons large">queue_play_next</i></a>
+    </div>
+</div>
+
+
+<h1 class="dashboard-header">Categories</h1>
 
 <div class="divider"></div>
 <div class="section">
-
     <div class="row">
         <form class="col s12" id="category-input">
             <div class="row">
@@ -16,7 +27,7 @@
 </div>
 <div class="divider"></div>
 
-<table class="highlight">
+<table class="highlight table-items">
     <thead>
         <tr>
             <th>Saved Categories</th>
@@ -25,7 +36,10 @@
     <tbody>
         {{#each categories}}
         <tr>
-            <td>{{name}}</td>
+            <td>{{name}} <a class="waves-effect waves-light btn delete-button"><i class="material-icons"
+                        id="delete-btn">delete</i></a>
+            </td>
+
         </tr>
         {{/each}}
     </tbody>

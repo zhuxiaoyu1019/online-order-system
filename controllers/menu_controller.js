@@ -208,10 +208,10 @@ router.put("/category", (req, res) => {
 });
 
 //category page - delete category
-router.delete("/category", (req, res) => {
+router.delete("/category/:id", (req, res) => {
     const {
         id
-    } = req.body;
+    } = req.params.id;
     Category.destroy({
         where: {
             id
