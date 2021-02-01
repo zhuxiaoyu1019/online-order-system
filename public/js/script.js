@@ -1,12 +1,15 @@
 $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
+    $('select').formSelect();
 
-    //category form
+
+    //category 
     $(document).on("submit", "#category-input", insertCategory);
+    $(document).on("click", "#delete-btn", deleteCategory);
 
     const $newCategoryInput = $("#category-name");
-
+    // new input
     function insertCategory(event) {
         event.preventDefault();
         const category = {
@@ -25,7 +28,19 @@ $(document).ready(function () {
 
     }
 
-    //extra form
+    // delete category
+    function deleteCategory(event) {
+        // event.stopPropagation();
+        var id = $(this).data("id");
+        $.ajax({
+            method: "DELETE",
+            url: "/category/" + id
+        }).then(() => {
+            location.reload();
+        });
+    }
+
+    //extra 
     $(document).on("submit", "#extra-input", insertExtra);
 
     const $newExtraInput = $("#extra-name");

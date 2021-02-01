@@ -2,7 +2,30 @@ body {
     background: #ffffff
 }
 
-.card-content {
+
+
+.dashboard-header {
     text-align: center;
-    margin: 0 auto;
+}
+
+.dashboard-grid {
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 0 auto;
+}
+
+#home-button,
+#new-product-btn {
+    float: right;
+}
+
+
+
+.table-items {
+    width: 70%;
+    padding-right: 20%;
+}
+
+.delete-button {
+    float: right
 }
