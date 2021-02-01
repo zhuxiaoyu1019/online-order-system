@@ -1,0 +1,1 @@
+//Here we will have Handlebars code to connect partial to the rest of our site

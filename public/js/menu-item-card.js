@@ -1,50 +1,72 @@
-//This file 
-$(document).ready(function () {
-    //menuContainer variable to hold all our menu items
-    const menuContainer = $(".menu-item-card");
-    const getCategorySelect = $("#Category");
+// //This file 
+// $(document).ready(function () {
+//     //menuContainer variable to hold all our menu items
+//     const menuContainer = $(".menu-item-card");
+//     const getCategorySelect = $("#Category");
 
-    //Click events
-    $(document).on("click", "button.delete", handlePostRender);
-    
-    // Variable to hold our items
-    const items;
+//     //Click events
+//     $(document).on("click", "", handlePostRender);
 
-    // The code below handles the case where we want to get menu items for a specific category 
-    // Looks for a query param in the url for category_id
-    var url = window.location.search;
-    var itemId;
-    if (url.indexOf("?item_id=") !== -1) {
-        itemId = url.split("=")[1];
-        getCategory(itemId);
-    }
+//     // Variable to hold our items
+//     const items;
 
-    // If there's no itemId we just get all posts as usual
-    else {
-        getCategory();
-    }
+//     // The code below handles the case where we want to get menu items for a specific category 
+//     // Looks for a query param in the url for category_id
+//     const url = window.location.search;
+//     const itemId;
+//     if (url.indexOf("?item_id=") !== -1) {
+//         itemId = url.split("=")[1];
+//         getCategory(itemId);
+//     }
 
-    // This function grabs posts from the database and updates the view
-    //GET REQUEST 
-    function getCategory(item) {
-        authorId = item || "";
-        if (authorId) {
-            authorId = "/?author_id=" + authorId;
-        }
-        $.get("/api/posts" + authorId, function (data) {
-            console.log("Posts", data);
-            posts = data;
-            if (!posts || !posts.length) {
-                displayEmpty(author);
-            }
-            else {
-                initializeRows();
-            }
-        });
-    }
-    // InitializeRows handles appending all of our constructed post HTML inside blogContainer
+//     // If there's no itemId we just get all posts as usual
+//     else {
+//         getCategory();
+//     }
 
-    // This function constructs a post's HTML
+//     // This function grabs posts from the database and updates the view
+//     //GET REQUEST 
+//     function getCategory(item) {
+//         itemId = item || "";
+//         if (itemId) {
+//             itemId = "/?item_id=" + itemId;
+//         }
+//         $.get("/api/Category" + itemId, function (data) {
+//             console.log("Testing GET", data);
+//             posts = data;
+//             if (!posts || !posts.length) {
+//                 displayEmpty(author);
+//             }
+//             else {
+//                 initializeData();
+//             // 
+//         });
+//     }
+//     // InitializeRows handles appending all of our constructed post HTML inside menuContainer
 
-    // This function displays a message when there are no posts
-});
+//     function initializeData() {
+//         menuContainer.empty();
+//         const postsToAdd = [];
+//         for (const i = 0; i < posts.length; i++) {
+//             items.push(createNewCard(posts[i]));
+//         }
+//         menuContainer.append(items);
+//     }
+
+//     // This function constructs a cards HTML
+
+//     function createNewCard(item) {
+
+//         const newItemCard = $("<div>");
+//         newItemCard.addClass("card");
+//         // var newItemCardHeading = $("<div>");
+//         // newItemCardHeading.addClass("card-header");
+
+//         const selectBtn = $("<button>");
+//         selectBtn.text("x");
+//         selectBtn.addClass("delete btn btn-danger");
+
+//         // This function displays a message when there are no posts
+// }
+
+// });
