@@ -1,14 +1,10 @@
 const router = require("express").Router();
 const db = require("../models");
-const Product = db.Product;
-const Category = db.Category;
-const Extra = db.Extra;
-const Price = db.Price;
 
-router.get("/", function (req, res) {
-    var hbsObject = {}
-    return res.render("owner-dash-home", hbsObject);
-});
+// router.get("/", function (req, res) {
+//     var hbsObject = {}
+//     return res.render("owner-dash-home", hbsObject);
+// });
 
 router.get("/category", function (req, res) {
     db.Category.findAll().then(function (data) {
@@ -22,8 +18,9 @@ router.get("/category", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/category", hbsObject);
-    })
-
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 router.get("/extra", function (req, res) {
@@ -38,7 +35,9 @@ router.get("/extra", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/extra", hbsObject);
-    })
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 router.get("/price", function (req, res) {
@@ -53,7 +52,9 @@ router.get("/price", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/price", hbsObject);
-    })
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 router.get("/product", function (req, res) {
@@ -83,7 +84,9 @@ router.get("/productAddOn", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/productAddOn", hbsObject);
-    })
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 router.get("/size", function (req, res) {
@@ -98,7 +101,9 @@ router.get("/size", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/size", hbsObject);
-    })
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 // edit this route for the owner user control panel
@@ -114,7 +119,9 @@ router.get("/user", function (req, res) {
         }
         console.log(hbsObject)
         return res.render("owner-dashboard-pages/user", hbsObject);
-    })
+    }).catch(err => {
+        res.status(500).json(err);
+    });
 });
 
 module.exports = router;
