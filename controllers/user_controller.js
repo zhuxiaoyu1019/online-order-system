@@ -54,7 +54,7 @@ router.get("/login", (req, res) => {
 router.get('/logout', (req, res) => {
     //destroy cookie
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('/piazzacutter');
 })
 
 module.exports = router;
