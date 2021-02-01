@@ -58,12 +58,9 @@ router.get("/price", function (req, res) {
 });
 
 router.get("/product", function (req, res) {
-    db.Product.findAll(
-        {
+    db.Product.findAll({
             include: [db.Image]
-        }
-    ).then(function (data) {
-        console.log("data: " + JSON.stringify(data));
+    }).then(function (data) {
         const productArray = []
         data.forEach(element => {
             const item = element.toJSON();
@@ -73,6 +70,24 @@ router.get("/product", function (req, res) {
             products: productArray
         }
         return res.render("owner-dashboard-pages/product", hbsObject);
+    })
+});
+
+router.get("/product-update", function (req, res) {
+    db.Product.findAll({
+        include: [db.Image]
+    }).then(function (data) {
+        console.log(data)
+        var productArray = []
+        data.forEach(element => {
+            var item = element.toJSON()
+            productArray.push(item)
+        });
+        var hbsObject = {
+            products: productArray
+        }
+        console.log(hbsObject)
+        return res.render("owner-dashboard-pages/product-edit-new", hbsObject);
     })
 });
 

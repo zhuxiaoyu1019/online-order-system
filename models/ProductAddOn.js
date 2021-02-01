@@ -1,5 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  const ProductAddOn = sequelize.define("ProductAddOn");
+  const ProductAddOn = sequelize.define("ProductAddOn"
+  );
 
   ProductAddOn.associate = function (models) {
     ProductAddOn.belongsTo(models.Topping, {
