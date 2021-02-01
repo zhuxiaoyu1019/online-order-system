@@ -1,8 +1,9 @@
-// $(document).ready(function() {
-// //menuContainer variable to hold all our menu items
-// var menuContainer =
-// //Click events
+$(document).ready(function() {
+//menuContainer variable to hold all our menu items
+var menuContainer = $(".menu-item-card");
 
-// //GET REQUEST 
+//Click events
 
-// };
+//GET REQUEST 
+
+};

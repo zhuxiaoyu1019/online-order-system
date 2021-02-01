@@ -10,13 +10,13 @@ const Image = require("../models/Image");
 
 
 router.get("/menu", (req, res) => {
-    db.Product.findAll({
-        include: [db.Category, db.Image]
-    }).then(data => {
-        res.json(data)
-    })
-    // var hbsObject = {}
-    // return res.render("./customer-pages/menu", hbsObject);
+    // db.Product.findAll({
+    //     include: [db.Category, db.Image]
+    // }).then(data => {
+    //     res.json(data)
+    // })
+    var hbsObject = {}
+    return res.render("./customer-pages/menu", hbsObject);
 });
 
 router.get("/catering", (req, res) => {
