@@ -17,11 +17,13 @@ router.post("/image", upload.single("image"), async (req, res) => {
     } = req.body;
     try {
         const result = await cloundinary.uploader.upload(req.file.path);
+        console.log(result);
         Image.create({
             name,
             secure_url: result.secure_url,
             cloundinary_id: result.public_id
         }).then(data => {
+            console.log(data);
             res.json(data);
         }).catch(err => {
             res.status(500).json(err);
@@ -102,13 +104,27 @@ router.post("/product", (req, res) => {
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     } = req.body;
     Product.create({
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -131,13 +147,27 @@ router.put("/product", (req, res) => {
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     } = req.body;
     Product.update({
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     }, {
         where: {
             id

@@ -58,11 +58,16 @@ router.get("/price", function (req, res) {
 });
 
 router.get("/product", function (req, res) {
-    db.Product.findAll().then(function (data) {
+    db.Product.findAll(
+        {
+            include: [db.Image]
+        }
+    ).then(function (data) {
+        console.log("data: " + JSON.stringify(data));
         var productArray = []
         data.forEach(element => {
-            var item = element.toJSON()
-            productArray.push(item)
+            var item = element.toJSON();
+            productArray.push(item);
         });
         var hbsObject = {
             products: productArray
