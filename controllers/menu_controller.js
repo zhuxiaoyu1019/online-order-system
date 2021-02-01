@@ -8,6 +8,9 @@ const Price = db.Price;
 const cloundinary = require("../config/cloundinary");
 const upload = require("../config/multer");
 
+// CRUD functionality for owner dashboard to update the database
+
+// product page - upload image 
 router.post("/image", upload.single("image"), async (req, res) => {
     const {
         name
@@ -28,6 +31,7 @@ router.post("/image", upload.single("image"), async (req, res) => {
     }
 });
 
+// product page - get all images
 router.get("/image", async (req, res) => {
     try {
         Image.findAll().then(data => {
@@ -40,6 +44,7 @@ router.get("/image", async (req, res) => {
     }
 });
 
+// product page - update or change image
 router.put("/image", upload.single("image"), async (req, res) => {
     const {
         id
@@ -68,6 +73,7 @@ router.put("/image", upload.single("image"), async (req, res) => {
     }
 });
 
+// product page - delete image
 router.delete("/image", async (req, res) => {
     const {
         id
@@ -90,6 +96,7 @@ router.delete("/image", async (req, res) => {
     };
 })
 
+// product page post new
 router.post("/product", (req, res) => {
     const {
         name,
@@ -117,6 +124,7 @@ router.post("/product", (req, res) => {
 //     });
 // });
 
+//product page - update a product 
 router.put("/product", (req, res) => {
     const {
         id,
@@ -141,6 +149,7 @@ router.put("/product", (req, res) => {
     });
 });
 
+// product page - delete a product
 router.delete("/product", (req, res) => {
     const {
         id
@@ -156,6 +165,8 @@ router.delete("/product", (req, res) => {
     });
 });
 
+
+// category page - create new category 
 router.post("/category", (req, res) => {
     const {
         name
@@ -177,6 +188,7 @@ router.post("/category", (req, res) => {
 //     });
 // });
 
+// category page - update category
 router.put("/category", (req, res) => {
     const {
         name,
@@ -195,6 +207,7 @@ router.put("/category", (req, res) => {
     });
 });
 
+//category page - delete category
 router.delete("/category", (req, res) => {
     const {
         id
@@ -210,6 +223,7 @@ router.delete("/category", (req, res) => {
     });
 })
 
+// extras page - create new extra
 router.post("/extra", (req, res) => {
     const {
         name,
@@ -233,6 +247,7 @@ router.post("/extra", (req, res) => {
 //     });
 // });
 
+// extra page - update extra item
 router.put("/extra", (req, res) => {
     const {
         name,
@@ -253,6 +268,7 @@ router.put("/extra", (req, res) => {
     });
 });
 
+// extra page - update extra item 
 router.delete("/extra", (req, res) => {
     const {
         id
@@ -268,6 +284,7 @@ router.delete("/extra", (req, res) => {
     });
 });
 
+// price page - create a new price 
 router.post("/price", (req, res) => {
     const {
         ProductId,
@@ -293,6 +310,7 @@ router.post("/price", (req, res) => {
 //     });
 // });
 
+// price page - update price 
 router.put("/price", (req, res) => {
     const {
         ProductId,
@@ -313,6 +331,7 @@ router.put("/price", (req, res) => {
     });
 });
 
+// price page - delete price 
 router.delete("/price", (req, res) => {
     const {
         id

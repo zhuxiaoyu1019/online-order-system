@@ -1,12 +1,5 @@
 const router = require("express").Router();
-const db = require("../models")
-// const Product = db.Product
-// const Category = db.Category
-// const Image = db.Image
-
-const Product = require("../models/Product");
-const Category = require("../models/Category");
-const Image = require("../models/Image");
+const db = require("../models");
 
 
 router.get("/menu", (req, res) => {

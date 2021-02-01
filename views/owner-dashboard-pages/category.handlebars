@@ -1,5 +1,32 @@
-<h1>hiiiii categories</h1>
+<h1>Categories</h1>
 
-{{#each categories}}
-<h2>name {{name}}</h2>
-{{/each}}
+<div class="divider"></div>
+<div class="section">
+
+    <div class="row">
+        <form class="col s12" id="category-input">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="category-name" type="text">
+                    <label for="category-name">Add New Category</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="divider"></div>
+
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Saved Categories</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each categories}}
+        <tr>
+            <td>{{name}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

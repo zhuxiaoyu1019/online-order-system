@@ -32,20 +32,22 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
-const menuRoutes = require("./controllers/menu_controller");
-app.use(menuRoutes);
+const userRoutes = require("./controllers/user_controller");
+app.use("/pizzacutter", userRoutes);
 
 const customerRoutes = require("./controllers/customerside_controller");
 app.use("/pizzacutter", customerRoutes);
 
 const ownerRoutes = require("./controllers/ownerside_controller");
-app.use("/dashboard", ownerRoutes);
+app.use("/pizzacutter/dashboard", ownerRoutes);
 
-const userRoutes = require("./controllers/user_controller");
-app.use(userRoutes);
+const menuRoutes = require("./controllers/menu_controller");
+app.use("/pizzacutter/dashboard", menuRoutes);
 
 const PORT = process.env.PORT || 3000;
-db.sequelize.sync({ force: false }).then(function () {
+db.sequelize.sync({
+    force: false
+}).then(function () {
     app.listen(PORT, function () {
         console.log("App now listening on port:", PORT);
     });
