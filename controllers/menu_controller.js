@@ -74,10 +74,10 @@ router.put("/image", upload.single("image"), async (req, res) => {
 });
 
 // product page - delete image
-router.delete("/image", async (req, res) => {
+router.delete("/image/:id", async (req, res) => {
     const {
         id
-    } = req.body;
+    } = req.params;
     try {
         const image = await Image.findOne({
             where: {
@@ -116,14 +116,6 @@ router.post("/product", (req, res) => {
     });
 });
 
-// router.get("/product", (req, res) => {
-//     Product.findAll().then(data => {
-//         res.json(data);
-//     }).catch(err => {
-//         res.status(500).json(err);
-//     });
-// });
-
 //product page - update a product 
 router.put("/product", (req, res) => {
     const {
@@ -150,10 +142,10 @@ router.put("/product", (req, res) => {
 });
 
 // product page - delete a product
-router.delete("/product", (req, res) => {
+router.delete("/product/:id", (req, res) => {
     const {
         id
-    } = req.body;
+    } = req.params;
     Product.destroy({
         where: {
             id
@@ -180,14 +172,6 @@ router.post("/category", (req, res) => {
     });
 });
 
-// router.get("/category", (req, res) => {
-//     Category.findAll().then(data => {
-//         res.json(data);
-//     }).catch(err => {
-//         res.status(500).json(err);
-//     });
-// });
-
 // category page - update category
 router.put("/category", (req, res) => {
     const {
@@ -211,7 +195,7 @@ router.put("/category", (req, res) => {
 router.delete("/category/:id", (req, res) => {
     const {
         id
-    } = req.params.id;
+    } = req.params;
     Category.destroy({
         where: {
             id
@@ -220,6 +204,7 @@ router.delete("/category/:id", (req, res) => {
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);
+
     });
 })
 
@@ -238,14 +223,6 @@ router.post("/extra", (req, res) => {
         res.status(500).json(err);
     });
 });
-
-// router.get("/extra", (req, res) => {
-//     Extra.findAll().then(data => {
-//         res.json(data);
-//     }).catch(err => {
-//         res.status(500).json(err);
-//     });
-// });
 
 // extra page - update extra item
 router.put("/extra", (req, res) => {
@@ -269,10 +246,10 @@ router.put("/extra", (req, res) => {
 });
 
 // extra page - update extra item 
-router.delete("/extra", (req, res) => {
+router.delete("/extra/:id", (req, res) => {
     const {
         id
-    } = req.body;
+    } = req.params;
     Extra.destroy({
         where: {
             id
@@ -302,14 +279,6 @@ router.post("/price", (req, res) => {
     });
 });
 
-// router.get("/price", (req, res) => {
-//     Price.findAll().then(data => {
-//         res.json(data);
-//     }).catch(err => {
-//         res.status(500).json(err);
-//     });
-// });
-
 // price page - update price 
 router.put("/price", (req, res) => {
     const {
@@ -332,10 +301,10 @@ router.put("/price", (req, res) => {
 });
 
 // price page - delete price 
-router.delete("/price", (req, res) => {
+router.delete("/price/:id", (req, res) => {
     const {
         id
-    } = req.body;
+    } = req.params;
     Price.destroy({
         where: {
             id

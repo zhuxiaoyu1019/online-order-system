@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col s6 back-button">
-        <a href='/dashboard' class="btn-floating btn-large waves-effect waves-light red"><i
+        <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
                 class="material-icons large">chevron_left</i></a>
     </div>
     <div class="col s6">
@@ -36,7 +36,8 @@
     <tbody>
         {{#each extras}}
         <tr>
-            <td>{{name}}</td>
+            <td>{{name}} <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id={{id}}>delete</i></a></td>
         </tr>
         {{/each}}
     </tbody>
