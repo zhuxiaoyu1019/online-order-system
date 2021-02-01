@@ -7,6 +7,9 @@ module.exports = function (sequelize, DataTypes) {
         Category.hasMany(models.Product, {
             onDelete: "cascade"
         });
+        Category.hasMany(models.Extra, {
+            onDelete: "cascade"
+        });
     };
 
     return Category;

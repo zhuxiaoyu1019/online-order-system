@@ -2,7 +2,7 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
     $('select').formSelect();
-
+  
     //category 
     $(document).on("submit", "#category-input", insertCategory);
     $(document).on("click", "#delete-btn", deleteCategory);
@@ -89,7 +89,7 @@ $(document).ready(function () {
             location.reload();
         });
     }
-
+  
     //extra 
     $(document).on("submit", "#extra-input", insertExtra);
 
