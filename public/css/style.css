@@ -15,7 +15,8 @@ body {
 }
 
 #home-button,
-#new-product-btn {
+#new-product-btn,
+#save-button {
     float: right;
 }
 

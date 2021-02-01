@@ -35,7 +35,10 @@
     <tbody>
         {{#each sizes}}
         <tr>
-            <td>{{size}}</td>
+            <td>{{size}}
+                <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id={{id}}>delete</i></a>
+            </td>
         </tr>
         {{/each}}
     </tbody>
