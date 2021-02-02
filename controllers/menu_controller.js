@@ -97,7 +97,7 @@ router.delete("/image/:id", async (req, res) => {
 })
 
 // product page post new
-router.post("/product", (req, res) => {
+router.post("/product-new", (req, res) => {
     const {
         name,
         description,
