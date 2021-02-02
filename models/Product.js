@@ -26,7 +26,6 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Product.associate = function (models) {
-        Product.hasMany(models.Price);
         Product.belongsTo(models.Category, {
             foreignKey: {
                 allowNutll: false
@@ -37,7 +36,6 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
-        Product.hasMany(models.Price);
     };
 
     return Product;
