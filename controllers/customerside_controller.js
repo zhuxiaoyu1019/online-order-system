@@ -24,7 +24,7 @@ router.get("/catering", (req, res) => {
             }
 
             console.log(JSON.stringify(hbsObject, null, 2));
-            return res.render("./customer-pages/menu", hbsObject);
+            return res.render("./customer-pages/catering", hbsObject);
         });
     });
 });
