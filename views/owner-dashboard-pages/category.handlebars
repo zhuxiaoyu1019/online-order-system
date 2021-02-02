@@ -1,45 +1,47 @@
-<div class="row">
-    <div class="col s6 back-button">
-        <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
-                class="material-icons large">chevron_left</i></a>
-    </div>
-    <div class="col s6">
-        <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
-                class="material-icons large">queue_play_next</i></a>
-    </div>
-</div>
-
-
-<h1 class="dashboard-header">Categories</h1>
-
-<div class="divider"></div>
-<div class="section">
+<body class="dashboard">
     <div class="row">
-        <form class="col s12" id="category-input">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="category-name" type="text">
-                    <label for="category-name">Add New Category</label>
-                </div>
-            </div>
-        </form>
+        <div class="col s6 back-button">
+            <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
+                    class="material-icons large">chevron_left</i></a>
+        </div>
+        <div class="col s6">
+            <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
+                    class="material-icons large">queue_play_next</i></a>
+        </div>
     </div>
-</div>
-<div class="divider"></div>
 
-<table class="highlight table-items">
-    <thead>
-        <tr>
-            <th>Saved Categories</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each categories}}
-        <tr>
-            <td>{{name}} <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
-                        data-id={{id}}>delete</i></a>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+
+    <h1 class="dashboard-header">Categories</h1>
+
+    <div class="divider"></div>
+    <div class="section">
+        <div class="row">
+            <form class="col s12" id="category-input">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="category-name" type="text">
+                        <label for="category-name">Add New Category</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="divider"></div>
+
+    <table class="highlight table-items">
+        <thead>
+            <tr>
+                <th>Saved Categories</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each categories}}
+            <tr>
+                <td>{{name}} <a class="waves-effect waves-light btn delete-button"><i class="material-icons"
+                            id="delete-btn" data-id={{id}}>delete</i></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>

@@ -44,6 +44,8 @@ app.use("/pizzacutter/dashboard", ownerRoutes);
 const menuRoutes = require("./controllers/menu_controller");
 app.use("/pizzacutter/dashboard", menuRoutes);
 
+app.use(express.static('views/images'));
+
 const PORT = process.env.PORT || 3000;
 db.sequelize.sync({
     force: false

@@ -1,89 +1,91 @@
-<div class="row">
-    <div class="col s6 back-button">
-        <a href='/pizzacutter/dashboard/product' class="btn-floating btn-large waves-effect waves-light red"><i
-                class="material-icons large">chevron_left</i></a>
+<body class="dashboard">
+    <div class="row">
+        <div class="col s6 back-button">
+            <a href='/pizzacutter/dashboard/product' class="btn-floating btn-large waves-effect waves-light red"><i
+                    class="material-icons large">chevron_left</i></a>
+        </div>
+
+        <div class="col s6">
+            <a class="btn-floating btn-large waves-effect waves-light green" id="save-button"><i
+                    class="material-icons large">save</i></a>
+        </div>
     </div>
 
-    <div class="col s6">
-        <a class="btn-floating btn-large waves-effect waves-light green" id="save-button"><i
-                class="material-icons large">save</i></a>
-    </div>
-</div>
 
+    <h1 class="dashboard-header">Update an Existing Product</h1>
 
-<h1 class="dashboard-header">Update an Existing Product</h1>
-
-<div class="divider"></div>
-<div class="row input-form">
-    <form class="col s12">
-        <div class="row">
-            <div class="input-field col s12">
-                <i class="material-icons prefix">mode_edit</i>
-                <textarea id="icon_prefix2 product-name" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Product Name</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <textarea id="textarea2 product-desc" class="materialize-textarea" data-length="120"></textarea>
-                <label for="textarea2">Description</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <!-- Switch -->
-                <div class="switch">
-                    <label>
-                        Out of Stock
-                        <input type="checkbox">
-                        <span class="lever" id="in-stock"></span>
-                        In Stock
-                    </label>
+    <div class="divider"></div>
+    <div class="row input-form">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="material-icons prefix">mode_edit</i>
+                    <textarea id="icon_prefix2 product-name" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">Product Name</label>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <i class="material-icons prefix">filter_list</i>
-                <select multiple id="product-category">
-                    {{#each categories}}
-                    <option value={{id}}>{{name}}</option>
-                    {{/each}}
-                </select>
-                <label>Select Category</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="textarea2 product-desc" class="materialize-textarea" data-length="120"></textarea>
+                    <label for="textarea2">Description</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <i class="material-icons prefix">format_size</i>
-                <select multiple id="product-size">
-                    <option value="1">Piccino</option>
-                    <option value="2">Small</option>
-                    <option value="3">Medium</option>
-                    <option value="4">Large</option>
-                    <option value="5">X-Large</option>
-                    <option value="6">Small-Square</option>
-                    <option value="7">Large-Square</option>
-                    <option value="8">Family</option>
-                    <option value="9">Full</option>
-                    <option value="10">Regular</option>
-                    <option value="11">Deluxe</option>
-                </select>
-                <label>Select Sizes</label>
+            <div class="row">
+                <div class="input-field col s6">
+                    <!-- Switch -->
+                    <div class="switch">
+                        <label>
+                            Out of Stock
+                            <input type="checkbox">
+                            <span class="lever" id="in-stock"></span>
+                            In Stock
+                        </label>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <i class="material-icons prefix">attach_money</i>
-                <textarea id="icon_prefix2 product-price" class="materialize-textarea"></textarea>
-                <label for="icon_prefix2">Price</label>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">filter_list</i>
+                    <select multiple id="product-category">
+                        {{#each categories}}
+                        <option value={{id}}>{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <label>Select Category</label>
+                </div>
             </div>
-        </div>
-        <ul class="collapsible">
-            <li>
-                <div class="collapsible-header"><i class="material-icons">filter_drama</i>Add a Photo</div>
-                <div class="collapsible-body"><span>Enter Photo upload widget here</span></div>
-            </li>
-        </ul>
-    </form>
-</div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_size</i>
+                    <select multiple id="product-size">
+                        <option value="1">Piccino</option>
+                        <option value="2">Small</option>
+                        <option value="3">Medium</option>
+                        <option value="4">Large</option>
+                        <option value="5">X-Large</option>
+                        <option value="6">Small-Square</option>
+                        <option value="7">Large-Square</option>
+                        <option value="8">Family</option>
+                        <option value="9">Full</option>
+                        <option value="10">Regular</option>
+                        <option value="11">Deluxe</option>
+                    </select>
+                    <label>Select Sizes</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">attach_money</i>
+                    <textarea id="icon_prefix2 product-price" class="materialize-textarea"></textarea>
+                    <label for="icon_prefix2">Price</label>
+                </div>
+            </div>
+            <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Add a Photo</div>
+                    <div class="collapsible-body"><span>Enter Photo upload widget here</span></div>
+                </li>
+            </ul>
+        </form>
+    </div>
+</body>
