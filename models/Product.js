@@ -12,17 +12,50 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BOOLEAN,
             defaultValue: "1"
         },
-        piccino: DataTypes.INTEGER,
-        small: DataTypes.INTEGER,
-        medium: DataTypes.INTEGER,
-        large: DataTypes.INTEGER,
-        x_large: DataTypes.INTEGER,
-        smallsquare: DataTypes.INTEGER,
-        largesqaure: DataTypes.INTEGER,
-        family: DataTypes.INTEGER,
-        full: DataTypes.INTEGER,
-        regular: DataTypes.INTEGER,
-        deluxe: DataTypes.INTEGER
+        piccino: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        small: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        medium: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        large: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        x_large: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        smallsquare: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        largesqaure: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        family: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        full: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        regular: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
+        deluxe: {
+            type: DataTypes.INTEGER,
+            allowNull: true
+        }
     });
 
     Product.associate = function (models) {

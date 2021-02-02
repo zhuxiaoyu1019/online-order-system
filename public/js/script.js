@@ -23,6 +23,9 @@ $(document).ready(function () {
     const $newProductSize = $("#product-size");
     const $newProductPrice = $("#product-price");
 
+    //edit product
+
+
     //size
     $(document).on("submit", "#size-input", insertSize);
     $(document).on("click", "#delete-btn", deleteSize);

@@ -17,7 +17,6 @@ router.get("/category", function (req, res) {
         const hbsObject = {
             categories: categoryArray
         }
-        console.log(hbsObject)
         return res.render("owner-dashboard-pages/category", hbsObject);
     }).catch(err => {
         res.status(500).json(err);
@@ -35,7 +34,6 @@ router.get("/extra", function (req, res) {
         const hbsObject = {
             extras: extraArray
         }
-        console.log(hbsObject)
         return res.render("owner-dashboard-pages/extra", hbsObject);
     }).catch(err => {
         res.status(500).json(err);
@@ -46,77 +44,110 @@ router.get("/extra", function (req, res) {
 router.get("/product", function (req, res) {
     db.Product.findAll({
         include: [db.Image, db.Category]
-    }).then(function (data) {
-        // console.log(data)
-        var productArray = []
-        data.forEach(element => {
+    }).then(function (productList) {
+        const productArray = []
+        productList.forEach(element => {
             const item = element.toJSON();
             productArray.push(item);
         });
-        db.Category.findAll().then(function (data) {
-            var categoryArray = []
-            data.forEach(element => {
-                var item = element.toJSON()
+        db.Category.findAll().then(function (categoryList) {
+            const categoryArray = []
+            categoryList.forEach(element => {
+                const item = element.toJSON()
                 categoryArray.push(item)
             })
-            var hbsObject = {
+            const hbsObject = {
                 categories: categoryArray,
                 products: productArray
             }
             return res.render("owner-dashboard-pages/product", hbsObject);
-        })
+        });
 
-    })
+    });
 });
 
 // render categories and sizes to new product page 
 router.get("/product-new", function (req, res) {
-    db.Size.findAll().then(function (data) {
-        // console.log(data)
-        var sizeArray = []
+    db.Category.findAll().then(function (data) {
+        var categoryArray = []
         data.forEach(element => {
             var item = element.toJSON()
-            sizeArray.push(item)
+            categoryArray.push(item)
         });
-        db.Category.findAll().then(function (data) {
-            var categoryArray = []
-            data.forEach(element => {
-                var item = element.toJSON()
-                categoryArray.push(item)
-            })
-            var hbsObject = {
-                categories: categoryArray,
-                sizes: sizeArray
-            }
-            return res.render("owner-dashboard-pages/product-new", hbsObject);
-        })
-
-    })
+        var hbsObject = {
+            categories: categoryArray,
+        }
+        return res.render("owner-dashboard-pages/product-new", hbsObject);
+    });
 });
 
-// render categories and sizes to edit product page 
-router.get("/product-edit", function (req, res) {
-    db.Size.findAll().then(function (data) {
-        // console.log(data)
-        var sizeArray = []
-        data.forEach(element => {
-            var item = element.toJSON()
-            sizeArray.push(item)
-        });
-        db.Category.findAll().then(function (data) {
-            var categoryArray = []
-            data.forEach(element => {
-                var item = element.toJSON()
-                categoryArray.push(item)
-            })
-            var hbsObject = {
-                categories: categoryArray,
-                sizes: sizeArray
+// edit product page 
+router.get("/product-edit/:id", function (req, res) {
+    db.Product.findOne({
+        where: { id: req.params.id },
+        include: [db.Category, db.Image]
+    }).then(function (editProduct) {
+        db.Category.findAll().then(function (categoryList) {
+            const categoryArray = []
+            categoryList.forEach(element => {
+                const item = element.toJSON()
+                if (item.id !== editProduct.CategoryId) {
+                    categoryArray.push(item);
+                }
+            });
+            const sizes = [{
+                name: "piccino",
+                price: editProduct.piccino ? true : false
+            },
+            {
+                name: "small",
+                price: editProduct.small ? true : false
+            },
+            {
+                name: "medium",
+                price: editProduct.medium ? true : false
+            },
+            {
+                name: "large",
+                price: editProduct.large ? true : false
+            },
+            {
+                name: "x_large",
+                price: editProduct.x_large ? true : false
+            },
+            {
+                name: "smallsquare",
+                price: editProduct.smallsquare ? true : false
+            },
+            {
+                name: "largesquare",
+                price: editProduct.largesquare ? true : false
+            },
+            {
+                name: "family",
+                price: editProduct.family ? true : false
+            },
+            {
+                name: "full",
+                price: editProduct.full ? true : false
+            },
+            {
+                name: "regular",
+                price: editProduct.regular ? true : false
+            },
+            {
+                name: "deluxe",
+                price: editProduct.deluxe ? true : false
             }
+            ]
+            const hbsObject = {
+                product: editProduct.toJSON(),
+                categories: categoryArray,
+                sizes
+            };
             return res.render("owner-dashboard-pages/product-edit", hbsObject);
-        })
-
-    })
+        });
+    });
 });
 
 
