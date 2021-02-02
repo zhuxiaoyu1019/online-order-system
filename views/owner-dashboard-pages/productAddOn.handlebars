@@ -10,32 +10,58 @@
 </div>
 
 <h1 class="dashboard-header">Product Add Ons</h1>
+<h4 class="dashboard-header">Individual elements such as dressings, toppings, sides, etc.</h4>
 
 <div class="divider"></div>
 <div class="section">
     <div class="row">
-        <form class="col s12" id="category-input">
-            <div class="row">
+        <div class="col s4">
+            <form class="col s12">
                 <div class="input-field col s12">
-                    <input id="category-name" type="text">
-                    <label for="category-name">Add New Product Add On</label>
+                    <textarea id="textarea1" class="materialize-textarea"></textarea>
+                    <label for="textarea1">Search...</label>
                 </div>
+            </form>
+        </div>
+        <div class="col s4">
+            <div class="input-field col s12">
+                <select multiple>
+                    {{#each categories}}
+                    <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                </select>
+                <label>Select Category</label>
             </div>
-        </form>
+        </div>
+        <div class="col s4">
+            <a href='/pizzacutter/dashboard/product-new' class="waves-effect waves-light btn"><i
+                    class="material-icons right">add</i>Add New Item</a>
+        </div>
     </div>
+</div>
 </div>
 <div class="divider"></div>
 
 <table class="highlight">
     <thead>
         <tr>
-            <th>Saved Product Add Ons</th>
+            <th>Extra Name</th>
+            <th>Price</th>
+            <th>Categories</th>
+            <th>Edit</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
-        {{#each productAddOns}}
+        {{#each extras}}
         <tr>
-            <td>{{name}}</td>
+            <td> {{name}}</td>
+            <td> {{price}}</td>
+            <td> {{category}}</td>
+            <td> <a href='/pizzacutter/dashboard/product-edit' class="waves-effect waves-light btn delete-button"><i
+                        class="material-icons" id="edit-btn" data-id={{id}}>edit</i></a></td>
+            <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id={{id}}>delete</i></a></td>
         </tr>
         {{/each}}
     </tbody>

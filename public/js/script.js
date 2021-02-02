@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.tabs').tabs();
     $('select').formSelect();
     $('.collapsible').collapsible();
+    M.AutoInit();
 
     //category 
     $(document).on("submit", "#category-input", insertCategory);
@@ -12,13 +13,17 @@ $(document).ready(function () {
     //product 
     // $(document).on("submit", "#product-search", searchProducts);
     $(document).on("click", "#delete-btn", deleteProduct);
-    const $productSearch = $("#product-search");
+    $(document).on("click", "#edit-btn", editProduct);
+    $(document).on("submit", ".search-form", searchProducts);
+    const $tableContent = $("#product-list")
+
 
     //new product
     $(document).on("click", "#save-button", createProduct);
     const $newProductName = $("#product-name");
     const $newProductDesc = $("#product-desc");
     const $inStock = $("#in-stock");
+
     const $newProductCategory = $("#product-category");
     const $newProductSize = $("#product-size");
     const $newProductPrice = $("#product-price");
@@ -79,7 +84,28 @@ $(document).ready(function () {
     }
 
     function searchProducts(event) {
-        console.log("function tbd")
+        event.preventDefault();
+
+        const $productSearch = $(".search-term").val().trim();
+
+        $.ajax({
+            method: "GET",
+            url: "/pizzacutter/dashboard/product/" + $productSearch
+        }).then((data) => {
+            console.log(data)
+            $tableContent.empty()
+            $tableContent.html(` <tr>
+            <td> ${data.name}</td>
+            <td> ${data.description}</td>
+            <td> ${data.in_stock}</td>
+            <td> ${data.Category.name || "No Category"}</td>
+            <td> <img src="${data.Image || "https://via.placeholder.com/100"}"></td>
+            <td> <a href='/pizzacutter/dashboard/product-edit' class="waves-effect waves-light btn delete-button"><i
+                        class="material-icons" id="edit-btn" data-id="${data.id}">edit</i></a></td>
+            <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id="${data.id}">delete</i></a></td>
+        </tr>`)
+        });
     }
 
     // delete product
@@ -95,35 +121,23 @@ $(document).ready(function () {
         });
     }
 
-    // new size
-    function insertSize(event) {
+    // edit product
+    function editProduct(event) {
         event.preventDefault();
-        const size = {
-            size: $newSizeInput.val().trim(),
+        const product = {
+            name: $newProductName.val().trim(),
+            description: $newProductDesc.val().trim(),
+            in_stock: $inStock
         };
-        $.ajax("/pizzacutter/dashboard/size", {
-            type: "POST",
-            data: size
+        $.ajax("/pizzacutter/dashboard/product-edit", {
+            type: "PUT",
+            data: product
         }).then(() => {
             // Reload the page to get the updated list
-            console.log("size name inserted")
+            console.log("product created")
             location.reload();
         });
     }
-
-    // delete size
-    function deleteSize(event) {
-        // event.stopPropagation();
-        var id = $(this).data("id");
-        console.log(id)
-        $.ajax({
-            method: "DELETE",
-            url: "/pizzacutter/dashboard/size/" + id
-        }).then(() => {
-            location.reload();
-        });
-    }
-
 
     //extra 
     $(document).on("submit", "#extra-input", insertExtra);

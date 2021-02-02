@@ -66,6 +66,24 @@ router.get("/product", function (req, res) {
     });
 });
 
+// product search render products and categories to product page 
+router.get("/product/:name", function (req, res) {
+    db.Product.findOne({
+        where: {
+            name: req.params.name
+        },
+        include: [db.Image, db.Category]
+    }).then(function (data) {
+        // console.log(data)
+        res.json(data)
+        // var productArray = []
+        // data.forEach(element => {
+        //     const item = element.toJSON();
+        //     productArray.push(item);
+        // });
+    })
+});
+
 // render categories and sizes to new product page 
 router.get("/product-new", function (req, res) {
     db.Category.findAll().then(function (data) {
@@ -168,22 +186,6 @@ router.get("/productAddOn", function (req, res) {
     });
 });
 
-router.get("/size", function (req, res) {
-    db.Size.findAll().then(function (data) {
-        const sizeArray = []
-        data.forEach(element => {
-            const item = element.toJSON()
-            sizeArray.push(item)
-        });
-        const hbsObject = {
-            sizes: sizeArray
-        }
-        console.log(hbsObject)
-        return res.render("owner-dashboard-pages/size", hbsObject);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
 
 // edit this route for the owner user control panel
 router.get("/user", function (req, res) {

@@ -1,17 +1,77 @@
-<h1>{{{}}</h1>
+{{> customer-nav }}
 
-<h2>Pizza Cutter has many catering options, including salads and pasta trays. We offer a special discount for customers
-    purchasing 10+ pizzas. Call and speak to a manager to order today!</h2>
+<h1 class="center title">Catering</h1>
 
-{{!Here's we add the menu category buttons}}
-<a class="waves-effect waves-light btn-large">All Pizza</a>
+<h2 class="center">Pizza Cutter has many catering options, including salads and pasta trays. We offer a special discount
+  for customers
+  purchasing 10+ pizzas. Call and speak to a manager to order today!
+</h2>
 
-<a class="waves-effect waves-light btn-large">Submarines</a>
+<div class="row">
 
-<a class="waves-effect waves-light btn-large">Salads</a>
+  <div class="col s12">
+    <ul class="tabs">
+      <li class="tab col s2"><a href="#test1">Pizza</a></li>
+      <li class="tab col s2"><a class="active" href="#test2">Submarines</a></li>
+      <li class="tab col s2"><a href="#test3">Salads</a></li>
+      <li class="tab col s2"><a href="#test4">Wings</a></li>
+      <li class="tab col s2"><a href="#test5">Stix</a></li>
+      <li class="tab col s2"><a href="#test6">Extras</a></li>
+    </ul>
+  </div>
 
-<a class="waves-effect waves-light btn-large">Pasta</a>
+  <div id="test1" class="col s12">
+    <h1>Pizza</h1>
+  </div>
 
-<a class="waves-effect waves-light btn-large">Wings</a>
+  <div id="test2" class="col s12">
+    <h1>Submarines</h1>
+  </div>
 
-<a class="waves-effect waves-light btn-large">Stix</a>
+  <div id="test3" class="col s12">
+    <h1>Salads</h1>
+  </div>
+
+  <div id="test4" class="col s12">
+    <h1>Wings</h1>
+  </div>
+
+  <div id="test5" class="col s12">
+    <h1>Stix</h1>
+  </div>
+
+  <div id="test6" class="col s12">
+    <h1>Extras</h1>
+  </div>
+
+  {{!Cards}}
+
+  <div class="row">
+    {{#each products}}
+
+    <div class="col s3 m4 menu-item-card">
+      <div class="card">
+        <div class="card-image">
+
+          {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
+          <img src=""> {{Image}}
+
+          <span class="card-title">{{name}}</span>
+
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">expand_more</i></a>
+        </div>
+
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">s<i class="material-icons right">close</i></span>
+          <h4>Product Details</h4>
+          <p>{{description}}</p>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    {{/each}}
+
+  </div>

@@ -1,50 +1,82 @@
-<h1></h1>
+{{> customer-nav }}
 
-{{!Here's we add the menu category buttons}}
-<a class="waves-effect waves-light btn-large">All Pizza</a>
-
-<a class="waves-effect waves-light btn-large">Submarines</a>
-
-<a class="waves-effect waves-light btn-large">Salads</a>
-
-<a class="waves-effect waves-light btn-large">Pasta</a>
-
-<a class="waves-effect waves-light btn-large">Wings</a>
-
-<a class="waves-effect waves-light btn-large">Stix</a>
-
-
-
-{{!Cards}}
+{{!Here's we add the menu category buttons via Materialize tabs}}
 <div class="row">
+
   <div class="col s12">
     <ul class="tabs">
-      <li class="tab col s3"><a href="#test1">Test 1</a></li>
-      <li class="tab col s3"><a class="active" href="#test2">Test 2</a></li>
-      <li class="tab col s3"><a href="#test4">Test 4</a></li>
+      <li class="tab col s2"><a href="#test1">Pizza</a></li>
+      <li class="tab col s2"><a class="active" href="#test2">Submarines</a></li>
+      <li class="tab col s2"><a href="#test3">Salads</a></li>
+      <li class="tab col s2"><a href="#test4">Wings</a></li>
+      <li class="tab col s2"><a href="#test5">Stix</a></li>
+      <li class="tab col s2"><a href="#test6">Extras</a></li>
     </ul>
   </div>
-  <div id="test1" class="col s12">
-    <h1>pizza</h1>
-  </div>
-  <div id="test2" class="col s12">
-    <h1>sub</h1>
-  </div>
-  <div id="test4" class="col s12">Test 4</div>
-</div>
 
-<div class="row">
-  <div class="col s3 m6 menu-item-card">
-    <div class="card">
-      <div class="card-image">
-        <img src="images/sample-1.jpg">
-        <span class="card-title"></span>
-        <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">Add</i></a>
-      </div>
-      <div class="card-content">
-        <p>I am a very simple card.</p>
+  <div id="test1" class="col s12">
+    <h1>Pizza</h1>
+  </div>
+
+  <div id="test2" class="col s12">
+    <h1>Submarines</h1>
+  </div>
+
+  <div id="test3" class="col s12">
+    <h1>Salads</h1>
+  </div>
+
+  <div id="test4" class="col s12">
+    <h1>Wings</h1>
+  </div>
+
+  <div id="test5" class="col s12">
+    <h1>Stix</h1>
+  </div>
+
+  <div id="test6" class="col s12">
+    <h1>Extras</h1>
+  </div>
+
+
+  {{!Cards}}
+
+  <div class="row">
+    {{#each products}}
+    <div class="col s3 m4 menu-item-card">
+      <div class="card hoverable">
+        <div class="card-image">
+
+          {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
+          <img
+            src="https://images.unsplash.com/photo-1590534247854-e97d5e3feef6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80">
+          {{Image}}
+
+          <span class="card-title">{{name}}</span>
+
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+              class="activator material-icons">expand_more</i></a>
+
+        </div>
+
+        <div class="card-content">
+          {{!-- <p>{{description}}</p> --}}
+        </div>
+
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Pick your players<i
+              class="material-icons right">close</i></span>
+
+          <h3>Cutter's Collection Pizza</h3>
+
+          <h4>Product Details</h4>
+          <p>{{description}}</p>
+
+
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+    {{/each}}
+
+  </div>
