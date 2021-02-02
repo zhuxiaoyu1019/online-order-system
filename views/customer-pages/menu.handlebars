@@ -43,7 +43,7 @@
 
   <div class="row">
     {{#each this}}
-    <div class="col s3 m4 menu-item-card">
+    <div class="col s3 m4 menu-item-card card">
       <div class="card hoverable">
         <div class="card-image">
 
@@ -52,11 +52,21 @@
 
           <span class="card-title">{{name}}</span>
 
-          <a href="" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">expand_more</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+              class="activator material-icons">expand_more</i></a>
+
         </div>
+
         <div class="card-content">
           <p>{{description}}</p>
           <p>{{price}}</p>
+        </div>
+
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">Pick your players<i class="material-icons right">close</i></span>
+          
+        {{> menu-item-details }}
+
         </div>
       </div>
     </div>
@@ -64,5 +74,3 @@
     {{/each}}
 
   </div>
-
- 
