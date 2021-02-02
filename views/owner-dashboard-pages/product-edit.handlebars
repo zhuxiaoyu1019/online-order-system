@@ -1,109 +1,111 @@
-<div class="row">
-    <div class="col s6 back-button">
-        <a href='/pizzacutter/dashboard/product' class="btn-floating btn-large waves-effect waves-light red"><i
-                class="material-icons large">chevron_left</i></a>
+<body class="dashboard">
+    <div class="row">
+        <div class="col s6 back-button">
+            <a href='/pizzacutter/dashboard/product' class="btn-floating btn-large waves-effect waves-light red"><i
+                    class="material-icons large">chevron_left</i></a>
+        </div>
+
+        <div class="col s6">
+            <a class="btn-floating btn-large waves-effect waves-light green" id="save-button"><i
+                    class="material-icons large">save</i></a>
+        </div>
     </div>
 
-    <div class="col s6">
-        <a class="btn-floating btn-large waves-effect waves-light green" id="save-button"><i
-                class="material-icons large">save</i></a>
-    </div>
-</div>
 
 
+    <h1 class="dashboard-header">Update Product</h1>
 
-<h1 class="dashboard-header">Update Product</h1>
-
-<div class="divider"></div>
-<div class="row input-form">
-    <form class="col s12" id="update-form">
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="product-name" type="text" class="validate" value="{{product.name}}"></iput>
-                <label class="active" for="product-name">Product Name</label>
+    <div class="divider"></div>
+    <div class="row input-form">
+        <form class="col s12" id="update-form">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="product-name" type="text" class="validate" value="{{product.name}}"></iput>
+                    <label class="active" for="product-name">Product Name</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-                <input id="description" type="text" class="validate" data-length="120" value="{{product.description}}">
-                </ipnut>
-                <label for="description">Description</label>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="description" type="text" class="validate" data-length="120"
+                        value="{{product.description}}">
+                    </ipnut>
+                    <label for="description">Description</label>
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <!-- Switch -->
-                <div class="switch">
-                    <label>
-                        Out of Stock
-                        {{#if product.in_stock}}
-                        <input class="in-stock" name="in-stock" type="checkbox" checked>
-                        {{else}}
-                        <input class="in-stock" name="in-stock" type="checkbox">
+            <div class="row">
+                <div class="input-field col s6">
+                    <!-- Switch -->
+                    <div class="switch">
+                        <label>
+                            Out of Stock
+                            {{#if product.in_stock}}
+                            <input class="in-stock" name="in-stock" type="checkbox" checked>
+                            {{else}}
+                            <input class="in-stock" name="in-stock" type="checkbox">
+                            {{/if}}
+                            <span class="lever" id="in-stock"></span>
+                            In Stock
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">filter_list</i>
+                    <select id="product-category">
+                        <option name="category-option" value={{product.Category.id}} selected>{{product.Category.name}}
+                        </option>
+                        {{#each categories}}
+                        <option name="category-option" value={{id}}>{{name}}</option>
+                        {{/each}}
+                    </select>
+                    <label>Select Category</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s8">
+                    <i class="material-icons prefix">format_size</i>
+                    <select multiple id="product-size">
+                        {{#each sizes}}
+                        {{#if price}}
+                        <option name="size-option" value={{name}} selected>{{name}}</option>
                         {{/if}}
-                        <span class="lever" id="in-stock"></span>
-                        In Stock
-                    </label>
+                        {{#unless price}}
+                        <option name="size-option" value={{name}}>{{name}}</option>
+                        {{/unless}}
+                        {{/each}}
+                    </select>
+                    <label>Select Sizes</label>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <i class="material-icons prefix">filter_list</i>
-                <select id="product-category">
-                    <option name="category-option" value={{product.Category.id}} selected>{{product.Category.name}}
-                    </option>
-                    {{#each categories}}
-                    <option name="category-option" value={{id}}>{{name}}</option>
-                    {{/each}}
-                </select>
-                <label>Select Category</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s8">
-                <i class="material-icons prefix">format_size</i>
-                <select multiple id="product-size">
-                    {{#each sizes}}
-                    {{#if price}}
-                    <option name="size-option" value={{name}} selected>{{name}}</option>
-                    {{/if}}
-                    {{#unless price}}
-                    <option name="size-option" value={{name}}>{{name}}</option>
-                    {{/unless}}
-                    {{/each}}
-                </select>
-                <label>Select Sizes</label>
-            </div>
-        </div>
-        <table class="highlight">
-            <thead>
-                <tr>
-                    <th>Size</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <form enctype="multipart/form-data" method="POST" action="/pizzacutter/dashboard/image">
-            <div class="file-field input-field">
-                <div class="btn">
-                    <span>Image</span>
-                    <input id="image-upload" type="file" name="image">
+            <table class="highlight">
+                <thead>
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <form enctype="multipart/form-data" method="POST" action="/pizzacutter/dashboard/image">
+                <div class="file-field input-field">
+                    <div class="btn">
+                        <span>Image</span>
+                        <input id="image-upload" type="file" name="image">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text" value={{product.Image.secure_url}}>
+                    </div>
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text" value={{product.Image.secure_url}}>
-                </div>
-            </div>
+            </form>
+            <button class="btn waves-effect waves-light" type="submit" name="action" id="submit-update"
+                data-id={{product.id}}>Submit
+                <i class="material-icons right">send</i>
+            </button>
         </form>
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit-update"
-            data-id={{product.id}}>Submit
-            <i class="material-icons right">send</i>
-        </button>
-    </form>
-</div>
+    </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/js/edit-product.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/edit-product.js"></script>
