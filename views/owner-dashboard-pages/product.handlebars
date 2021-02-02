@@ -24,23 +24,17 @@
         </div>
         <div class="col s4">
             <div class="input-field col s12">
-                <select>
-                    <option value="1">Pizza</option>
-                    <option value="2">Stix</option>
-                    <option value="3">Salads</option>
-                    <option value="4">Submarines</option>
-                    <option value="5">Pasta and Wings</option>
-                    <option value="6">Sides and Extras</option>
-                    <option value="7">Merchandise and Other</option>
+                <select multiple>
+                    {{#each categories}}
+                    <option value={{id}}>{{name}}</option>
+                    {{/each}}
                 </select>
                 <label>Select Category</label>
             </div>
         </div>
         <div class="col s4">
-            <button class="btn waves-effect waves-light" id="new-product-btn" type="submit" name="action">
-                <a href='/pizzacutter/dashboard/product-update'></a>Add New Item
-                <i class="material-icons right">add</i>
-            </button>
+            <a href='/pizzacutter/dashboard/product-new' class="waves-effect waves-light btn"><i
+                    class="material-icons right">add</i>Add New Item</a>
         </div>
     </div>
 </div>

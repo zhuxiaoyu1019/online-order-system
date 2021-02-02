@@ -97,7 +97,7 @@ router.delete("/image/:id", async (req, res) => {
 })
 
 // product page post new
-router.post("/product", (req, res) => {
+router.post("/product-new", (req, res) => {
     const {
         name,
         description,
@@ -287,97 +287,96 @@ router.delete("/extra/:id", (req, res) => {
 });
 
 // price page - create a new price 
-router.post("/price", (req, res) => {
-    const {
-        ProductId,
-        SizeId,
-        price
-    } = req.body;
-    Price.create({
-        ProductId,
-        SizeId,
-        price: price.replace(".", "")
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// router.post("/price", (req, res) => {
+//     const {
+//         ProductId,
+//         SizeId,
+//         price
+//     } = req.body;
+//     Price.create({
+//         ProductId,
+//         SizeId,
+//         price: price.replace(".", "")
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
-// price page - update price 
-router.put("/price", (req, res) => {
-    const {
-        ProductId,
-        SizeId,
-        price
-    } = req.body;
-    Price.update({
-        price: price.replace(".", "")
-    }, {
-        where: {
-            ProductId,
-            SizeId
-        }
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// // price page - update price 
+// router.put("/price", (req, res) => {
+//     const {
+//         ProductId,
+//         SizeId,
+//         price
+//     } = req.body;
+//     Price.update({
+//         price: price.replace(".", "")
+//     }, {
+//         where: {
+//             ProductId,
+//             SizeId
+//         }
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
-// price page - delete price 
-router.delete("/price/:id", (req, res) => {
-    Price.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// // price page - delete price 
+// router.delete("/price/:id", (req, res) => {
+//     Price.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 // size page - create new size
+// router.post("/size", (req, res) => {
+//     Size.create({
+//         size: req.body.size
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
-router.post("/size", (req, res) => {
-    Size.create({
-        size: req.body.size
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// // size page - update size
 
-// size page - update size
+// router.put("/size/:id", (req, res) => {
+//     Size.update({
+//         size: req.body.size
+//     }, {
+//         where: {
+//             id: req.params.id
+//         }
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
-router.put("/size/:id", (req, res) => {
-    Size.update({
-        size: req.body.size
-    }, {
-        where: {
-            id: req.params.id
-        }
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
-
-// size page - delete size 
-router.delete("/size/:id", (req, res) => {
-    Size.destroy({
-        where: {
-            id: req.params.id
-        }
-    }).then(data => {
-        res.json(data);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
+// // size page - delete size 
+// router.delete("/size/:id", (req, res) => {
+//     Size.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     }).then(data => {
+//         res.json(data);
+//     }).catch(err => {
+//         res.status(500).json(err);
+//     });
+// });
 
 // productAddon page - create productAddOn
 router.post("/productAddOn", (req, res) => {

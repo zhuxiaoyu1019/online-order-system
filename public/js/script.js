@@ -2,22 +2,31 @@ $(document).ready(function () {
     $('.sidenav').sidenav();
     $('.tabs').tabs();
     $('select').formSelect();
-  
+    $('.collapsible').collapsible();
+
     //category 
     $(document).on("submit", "#category-input", insertCategory);
     $(document).on("click", "#delete-btn", deleteCategory);
     const $newCategoryInput = $("#category-name");
 
     //product 
-    $(document).on("submit", "#product-search", insertProduct);
-    $(document).on("click", "#delete-btn", deleteProductMain);
+    // $(document).on("submit", "#product-search", searchProducts);
+    $(document).on("click", "#delete-btn", deleteProduct);
     const $productSearch = $("#product-search");
 
-    //product new
-    $(document).on("submit", "#product-input", insertProduct);
-    $(document).on("click", "#delete-btn", deleteProductFromUpdatePage);
-    const $newProductInput = $("#product-name");
+    //new product
+    $(document).on("click", "#save-button", createProduct);
+    const $newProductName = $("#product-name");
+    const $newProductDesc = $("#product-desc");
+    const $inStock = $("#in-stock");
+    const $newProductCategory = $("#product-category");
+    const $newProductSize = $("#product-size");
+    const $newProductPrice = $("#product-price");
 
+    //size
+    $(document).on("submit", "#size-input", insertSize);
+    $(document).on("click", "#delete-btn", deleteSize);
+    const $newSizeInput = $("#size-name");
 
     // new category
     function insertCategory(event) {
@@ -25,7 +34,7 @@ $(document).ready(function () {
         const category = {
             name: $newCategoryInput.val().trim(),
         };
-        $.ajax("/category", {
+        $.ajax("/pizzacutter/dashboard/category", {
             type: "POST",
             data: category
         }).then(() => {
@@ -49,23 +58,29 @@ $(document).ready(function () {
     }
 
     // new product
-    function insertProduct(event) {
+    function createProduct(event) {
         event.preventDefault();
         const product = {
-            name: $newProductInput.val().trim(),
+            name: $newProductName.val().trim(),
+            description: $newProductDesc.val().trim(),
+            in_stock: $inStock
         };
-        $.ajax("/product", {
+        $.ajax("/pizzacutter/dashboard/product-new", {
             type: "POST",
             data: product
         }).then(() => {
             // Reload the page to get the updated list
-            console.log("product name inserted")
+            console.log("product created")
             location.reload();
         });
     }
 
+    function searchProducts(event) {
+        console.log("function tbd")
+    }
+
     // delete product
-    function deleteProductMain(event) {
+    function deleteProduct(event) {
         // event.stopPropagation();
         var id = $(this).data("id");
         console.log(id)
@@ -77,19 +92,36 @@ $(document).ready(function () {
         });
     }
 
-    // delete product
-    function deleteProductFromUpdatePage(event) {
+    // new size
+    function insertSize(event) {
+        event.preventDefault();
+        const size = {
+            size: $newSizeInput.val().trim(),
+        };
+        $.ajax("/pizzacutter/dashboard/size", {
+            type: "POST",
+            data: size
+        }).then(() => {
+            // Reload the page to get the updated list
+            console.log("size name inserted")
+            location.reload();
+        });
+    }
+
+    // delete size
+    function deleteSize(event) {
         // event.stopPropagation();
         var id = $(this).data("id");
         console.log(id)
         $.ajax({
             method: "DELETE",
-            url: "/pizzacutter/dashboard/product-update/" + id
+            url: "/pizzacutter/dashboard/size/" + id
         }).then(() => {
             location.reload();
         });
     }
-  
+
+
     //extra 
     $(document).on("submit", "#extra-input", insertExtra);
 
