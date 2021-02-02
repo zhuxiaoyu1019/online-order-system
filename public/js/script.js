@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.tabs').tabs();
     $('select').formSelect();
     $('.collapsible').collapsible();
+    M.AutoInit();
 
     //category 
     $(document).on("submit", "#category-input", insertCategory);
