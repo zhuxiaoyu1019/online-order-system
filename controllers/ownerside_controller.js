@@ -50,6 +50,7 @@ router.get("/product", function (req, res) {
         // console.log(data)
         var productArray = []
         data.forEach(element => {
+            // create object and give it keys and values that handlebars is expecting and push to product array 
             const item = element.toJSON();
             productArray.push(item);
         });
@@ -69,14 +70,34 @@ router.get("/product", function (req, res) {
     })
 });
 
+// product search render products and categories to product page 
+router.get("/product/:name", function (req, res) {
+    db.Product.findOne({
+        where: {
+            name: req.params.name
+        },
+        include: [db.Image, db.Category]
+    }).then(function (data) {
+        // console.log(data)
+        res.json(data)
+        // var productArray = []
+        // data.forEach(element => {
+        //     const item = element.toJSON();
+        //     productArray.push(item);
+        // });
+    })
+});
+
 // render categories and sizes to new product page 
 router.get("/product-new", function (req, res) {
-    db.Size.findAll().then(function (data) {
+    db.Product.findAll({
+        include: [db.Image, db.Category]
+    }).then(function (data) {
         // console.log(data)
-        var sizeArray = []
+        var productArray = []
         data.forEach(element => {
-            var item = element.toJSON()
-            sizeArray.push(item)
+            const item = element.toJSON();
+            productArray.push(item);
         });
         db.Category.findAll().then(function (data) {
             var categoryArray = []
@@ -86,13 +107,13 @@ router.get("/product-new", function (req, res) {
             })
             var hbsObject = {
                 categories: categoryArray,
-                sizes: sizeArray
             }
             return res.render("owner-dashboard-pages/product-new", hbsObject);
         })
 
     })
-});
+})
+
 
 // render categories and sizes to edit product page 
 router.get("/product-edit", function (req, res) {
@@ -137,22 +158,6 @@ router.get("/productAddOn", function (req, res) {
     });
 });
 
-router.get("/size", function (req, res) {
-    db.Size.findAll().then(function (data) {
-        const sizeArray = []
-        data.forEach(element => {
-            const item = element.toJSON()
-            sizeArray.push(item)
-        });
-        const hbsObject = {
-            sizes: sizeArray
-        }
-        console.log(hbsObject)
-        return res.render("owner-dashboard-pages/size", hbsObject);
-    }).catch(err => {
-        res.status(500).json(err);
-    });
-});
 
 // edit this route for the owner user control panel
 router.get("/user", function (req, res) {
