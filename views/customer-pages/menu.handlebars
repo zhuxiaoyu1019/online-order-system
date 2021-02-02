@@ -1,6 +1,4 @@
-<div>
 {{> customer-nav }}
-</div>
 
 {{!Here's we add the menu category buttons via Materialize tabs}}
 <div class="row">
@@ -44,13 +42,15 @@
   {{!Cards}}
 
   <div class="row">
-    {{#each this}}
+    {{#each products}}
     <div class="col s3 m4 menu-item-card">
       <div class="card hoverable">
         <div class="card-image">
 
           {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
-          <img src="https://images.unsplash.com/photo-1590534247854-e97d5e3feef6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"> {{img}} 
+          <img
+            src="https://images.unsplash.com/photo-1590534247854-e97d5e3feef6?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80">
+          {{Image}}
 
           <span class="card-title">{{name}}</span>
 
@@ -60,14 +60,18 @@
         </div>
 
         <div class="card-content">
-          <p>{{description}}</p>
-          <p>{{price}}</p>
+          {{!-- <p>{{description}}</p> --}}
         </div>
 
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">Pick your players<i class="material-icons right">close</i></span>
-          
-        {{> menu-item-details }}
+          <span class="card-title grey-text text-darken-4">Pick your players<i
+              class="material-icons right">close</i></span>
+
+          <h3>Cutter's Collection Pizza</h3>
+
+          <h4>Product Details</h4>
+          <p>{{description}}</p>
+
 
         </div>
       </div>
