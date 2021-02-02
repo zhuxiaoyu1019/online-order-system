@@ -2,7 +2,7 @@
 // $(document).ready(function () {
 //     //menuContainer variable to hold all our menu items
 //     const menuContainer = $(".menu-item-card");
-//     const getCategorySelect = $("#Category");
+//     const getCategorySelect = $("#category");
 
 //     //Click events
 //     $(document).on("click", "", handlePostRender);
@@ -13,34 +13,34 @@
 //     // The code below handles the case where we want to get menu items for a specific category 
 //     // Looks for a query param in the url for category_id
 //     const url = window.location.search;
-//     const itemId;
-//     if (url.indexOf("?item_id=") !== -1) {
-//         itemId = url.split("=")[1];
-//         getCategory(itemId);
+//     const categoryId;
+//     if (url.indexOf("?category_id=") !== -1) {
+//         categoryId = url.split("=")[1];
+//         getItems(categoryId);
 //     }
 
 //     // If there's no itemId we just get all posts as usual
 //     else {
-//         getCategory();
+//         getItems();
 //     }
 
-//     // This function grabs posts from the database and updates the view
+//     // This function grabs from the database and updates the view
 //     //GET REQUEST 
-//     function getCategory(item) {
-//         itemId = item || "";
-//         if (itemId) {
-//             itemId = "/?item_id=" + itemId;
+//     function getItems(category) {
+//         categoryId = item || "";
+//         if (categoryId) {
+//             categoryId = "/?category_id=" + categoryId;
 //         }
-//         $.get("/api/Category" + itemId, function (data) {
+//         $.get("/api/product" + itemId, function (data) {
 //             console.log("Testing GET", data);
 //             posts = data;
-//             if (!posts || !posts.length) {
+//             if (!item || !posts.length) {
 //                 displayEmpty(author);
 //             }
 //             else {
 //                 initializeData();
-//             // 
-//         });
+//                 // 
+//             }});
 //     }
 //     // InitializeRows handles appending all of our constructed post HTML inside menuContainer
 
@@ -65,8 +65,6 @@
 //         const selectBtn = $("<button>");
 //         selectBtn.text("x");
 //         selectBtn.addClass("delete btn btn-danger");
-
-//         // This function displays a message when there are no posts
-// }
+//     }
 
 // });
