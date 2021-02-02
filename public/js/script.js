@@ -12,21 +12,16 @@ $(document).ready(function () {
     //product 
     // $(document).on("submit", "#product-search", searchProducts);
     $(document).on("click", "#delete-btn", deleteProduct);
-    const $productSearch = $("#product-search");
+    $(document).on("click", "#edit-btn", editProduct);
+    $(document).on("submit", ".search-form", searchProducts);
+    const $tableContent
+
 
     //new product
     $(document).on("click", "#save-button", createProduct);
     const $newProductName = $("#product-name");
     const $newProductDesc = $("#product-desc");
     const $inStock = $("#in-stock");
-    const $newProductCategory = $("#product-category");
-    const $newProductSize = $("#product-size");
-    const $newProductPrice = $("#product-price");
-
-    //size
-    $(document).on("submit", "#size-input", insertSize);
-    $(document).on("click", "#delete-btn", deleteSize);
-    const $newSizeInput = $("#size-name");
 
     // new category
     function insertCategory(event) {
@@ -76,7 +71,16 @@ $(document).ready(function () {
     }
 
     function searchProducts(event) {
-        console.log("function tbd")
+        event.preventDefault();
+
+        const $productSearch = $(".search-term").val().trim();
+
+        $.ajax({
+            method: "GET",
+            url: "/pizzacutter/dashboard/product/" + $productSearch
+        }).then((data) => {
+            console.log(data)
+        });
     }
 
     // delete product
@@ -92,35 +96,23 @@ $(document).ready(function () {
         });
     }
 
-    // new size
-    function insertSize(event) {
+    // edit product
+    function editProduct(event) {
         event.preventDefault();
-        const size = {
-            size: $newSizeInput.val().trim(),
+        const product = {
+            name: $newProductName.val().trim(),
+            description: $newProductDesc.val().trim(),
+            in_stock: $inStock
         };
-        $.ajax("/pizzacutter/dashboard/size", {
-            type: "POST",
-            data: size
+        $.ajax("/pizzacutter/dashboard/product-edit", {
+            type: "PUT",
+            data: product
         }).then(() => {
             // Reload the page to get the updated list
-            console.log("size name inserted")
+            console.log("product created")
             location.reload();
         });
     }
-
-    // delete size
-    function deleteSize(event) {
-        // event.stopPropagation();
-        var id = $(this).data("id");
-        console.log(id)
-        $.ajax({
-            method: "DELETE",
-            url: "/pizzacutter/dashboard/size/" + id
-        }).then(() => {
-            location.reload();
-        });
-    }
-
 
     //extra 
     $(document).on("submit", "#extra-input", insertExtra);
