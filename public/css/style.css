@@ -50,13 +50,15 @@ h1 {
 /* Navigation*/
 .nav_bar {
     background-color: black;
+    height: 5em;
     
+}
+
+.brand-logo, img {
+    height: 75px;
 }
 
 /* Login */
 
 /*Menu and Catering Tabs*/
-/* 
-.tab {
-    
-} */
+
