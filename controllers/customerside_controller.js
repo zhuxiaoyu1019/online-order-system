@@ -43,6 +43,9 @@ router.get("/career", (req, res) => {
     return res.render("./customer-pages/careers", hbsObject);
 });
 
-
+router.get("/login", (req, res) => {
+    var hbsObject = {}
+    return res.render("./customer-pages/login", hbsObject);
+});
 
 module.exports = router;
