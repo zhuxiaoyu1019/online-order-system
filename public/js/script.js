@@ -24,6 +24,18 @@ $(document).ready(function () {
     const $newProductDesc = $("#product-desc");
     const $inStock = $("#in-stock");
 
+    const $newProductCategory = $("#product-category");
+    const $newProductSize = $("#product-size");
+    const $newProductPrice = $("#product-price");
+
+    //edit product
+
+
+    //size
+    $(document).on("submit", "#size-input", insertSize);
+    $(document).on("click", "#delete-btn", deleteSize);
+    const $newSizeInput = $("#size-name");
+
     // new category
     function insertCategory(event) {
         event.preventDefault();

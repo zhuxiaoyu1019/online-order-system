@@ -44,6 +44,7 @@
     </div>
     <div class="divider"></div>
 
+<<<<<<< HEAD
     <table class="highlight">
         <thead>
             <tr>
@@ -73,3 +74,39 @@
         </tbody>
     </table>
 </body>
+=======
+<table class="highlight">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Description</th>
+            <th>In Stock</th>
+            <th>Categories</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody id="product-list">
+        {{#each products}}
+        <tr>
+            <td> {{name}}</td>
+            <td> {{description}}</td>
+            <td> {{in_stock}}</td>
+            {{!-- <td> {{size}}</td> --}}
+            {{!-- <td> {{price}}</td> --}}
+            <td> {{category}}</td>
+            <td> {{secure_url}}</td>
+            <td> <a class="waves-effect waves-light btn" id="edit-btn" data-id={{id}}><i
+                        class="material-icons">create</i></a></td>
+            <td> <a class="waves-effect waves-light btn delete-button" id="delete-btn"><i class="material-icons"
+                        data-id={{id}}>delete</i></a></td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/edit-product.js"></script>
+>>>>>>> development
