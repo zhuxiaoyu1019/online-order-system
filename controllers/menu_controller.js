@@ -27,6 +27,7 @@ router.post("/image", upload.single("image"), async (req, res) => {
             res.status(500).json(err);
         });
     } catch (err) {
+        console.log(err)
         res.status(500).json(err);
     }
 });
@@ -69,6 +70,7 @@ router.put("/image", upload.single("image"), async (req, res) => {
         });
         res.json(update);
     } catch (err) {
+        console.log(err);
         res.status(500).json(err);
     }
 });
@@ -94,19 +96,26 @@ router.delete("/image/:id", async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     };
+});
+
+router.get("/size/:id", (req, res) => {
+    Product.findOne({ where: { id: req.params.id } }).then(data => {
+
+    })
 })
 
 // product page post new
-router.post("/product-new", (req, res) => {
+router.post("/product", (req, res) => {
     const {
         name,
         description,
+        in_stock,
         ImageId,
         CategoryId,
         piccino,
         small,
         medium,
-        larger,
+        large,
         x_large,
         smallsquare,
         largesqaure,
@@ -118,12 +127,13 @@ router.post("/product-new", (req, res) => {
     Product.create({
         name,
         description,
+        in_stock,
         ImageId,
         CategoryId,
         piccino,
         small,
         medium,
-        larger,
+        large,
         x_large,
         smallsquare,
         largesqaure,
@@ -139,38 +149,28 @@ router.post("/product-new", (req, res) => {
 });
 
 //product page - update a product 
-router.put("/product", (req, res) => {
-    const {
-        id,
-        name,
-        description,
-        ImageId,
-        CategoryId,
-        piccino,
-        small,
-        medium,
-        larger,
-        x_large,
-        smallsquare,
-        largesqaure
-    } = req.body;
-    Product.update({
-        name,
-        description,
-        ImageId,
-        CategoryId,
-        piccino,
-        small,
-        medium,
-        larger,
-        x_large,
-        smallsquare,
-        largesqaure
-    }, {
+router.put("/product/:id", (req, res) => {
+    console.log(req.body);
+    // const {
+    //     name,
+    //     description,
+    //     in_stock,
+    //     ImageId,
+    //     CategoryId,
+    //     piccino,
+    //     small,
+    //     medium,
+    //     large,
+    //     x_large,
+    //     smallsquare,
+    //     largesqaure
+    // } = req.body;
+    Product.update(req.body, {
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
+        console.log(data);
         res.json(data);
     }).catch(err => {
         res.status(500).json(err);

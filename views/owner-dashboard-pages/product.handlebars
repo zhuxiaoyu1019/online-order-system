@@ -60,13 +60,19 @@
             <td> {{name}}</td>
             <td> {{description}}</td>
             <td> {{in_stock}}</td>
+            {{!-- <td> {{size}}</td> --}}
+            {{!-- <td> {{price}}</td> --}}
             <td> {{category}}</td>
             <td> {{secure_url}}</td>
-            <td> <a href='/pizzacutter/dashboard/product-edit' class="waves-effect waves-light btn delete-button"><i
-                        class="material-icons" id="edit-btn" data-id={{id}}>edit</i></a></td>
-            <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+            <td> <a class="waves-effect waves-light btn" id="edit-btn" data-id={{id}}><i
+                        class="material-icons">create</i></a></td>
+            <td> <a class="waves-effect waves-light btn delete-button" id="delete-btn"><i class="material-icons"
                         data-id={{id}}>delete</i></a></td>
         </tr>
         {{/each}}
     </tbody>
 </table>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="/js/edit-product.js"></script>
