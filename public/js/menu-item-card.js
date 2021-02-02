@@ -28,5 +28,13 @@
 //     renderCards();
 //     $(document).on("click", "#tab", renderCard);
 
+//     function renderCard(event) {
+//         }
+//         $.get("/api/product", function (data) {
+//             console.log(data);
+//             cards = data;
+//             menuContainer.append;
+//         });
+//     }
 
 // });
