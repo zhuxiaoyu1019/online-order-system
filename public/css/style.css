@@ -4,10 +4,49 @@ body {
 }
 
 
+
+
+/*Customer Pages*/
+h1 {
+    font-weight: 750;
+    float: right;
+    margin: 0 0 1rem;
+    padding: 0;
+    line-height: 1;
+    font-size: 5vw;
+
+    @media (max-width: 400px) {
+        font-size: 22px;
+    }
+
+    @media (min-width: 1200px) {
+        font-size: 75px;
+    }
+}
+
+
+/* Navigation*/
+.nav_bar {
+    background-color: black;
+
+}
+
+.brand-logo,
+.logo-img {
+    height: 10vh;
+    position: absolute;
+
+}
+
+/* Login */
+
+/*Menu and Catering Tabs*/
+
 /*Owner Dashboard*/
 
 .dashboard-header {
     text-align: center;
+
 }
 
 .dashboard-grid {
@@ -30,37 +69,3 @@ body {
 .delete-button {
     float: right
 }
-
-/*Customer Pages*/
-h1 {
-    font-weight: 750;
-    float: right;
-    margin: 0 0 1rem;
-    padding: 0;
-    line-height: 1;
-    font-size: 5vw;
-    @media (max-width: 400px) {
-      font-size: 22px;
-    }
-    @media (min-width: 1200px) {
-      font-size: 75px;
-    }
-  }
-
-
-/* Navigation*/
-.nav_bar {
-    background-color: black;
-    
-}
-
-.brand-logo, .logo-img {
-    height: 10vh;
-    position: absolute;
-
-}
-
-/* Login */
-
-/*Menu and Catering Tabs*/
-

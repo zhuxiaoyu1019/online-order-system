@@ -14,7 +14,7 @@ $(document).ready(function () {
     $(document).on("click", "#delete-btn", deleteProduct);
     $(document).on("click", "#edit-btn", editProduct);
     $(document).on("submit", ".search-form", searchProducts);
-    const $tableContent
+    const $tableContent = $("#product-list")
 
 
     //new product
@@ -80,6 +80,18 @@ $(document).ready(function () {
             url: "/pizzacutter/dashboard/product/" + $productSearch
         }).then((data) => {
             console.log(data)
+            $tableContent.empty()
+            $tableContent.html(` <tr>
+            <td> ${data.name}</td>
+            <td> ${data.description}</td>
+            <td> ${data.in_stock}</td>
+            <td> ${data.Category.name || "No Category"}</td>
+            <td> <img src="${data.Image || "https://via.placeholder.com/100"}"></td>
+            <td> <a href='/pizzacutter/dashboard/product-edit' class="waves-effect waves-light btn delete-button"><i
+                        class="material-icons" id="edit-btn" data-id="${data.id}">edit</i></a></td>
+            <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
+                        data-id="${data.id}">delete</i></a></td>
+        </tr>`)
         });
     }
 
