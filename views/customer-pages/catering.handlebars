@@ -1,9 +1,10 @@
 {{> customer-nav }}
 
-<h1>{{{}}</h1>
+<h1>Catering</h1>
+
 
 <h2>Pizza Cutter has many catering options, including salads and pasta trays. We offer a special discount for customers
-    purchasing 10+ pizzas. Call and speak to a manager to order today!</h2>
+  purchasing 10+ pizzas. Call and speak to a manager to order today!</h2>
 
 <div class="row">
 
@@ -38,10 +39,10 @@
   </div>
 
 
-{{!Cards}}
+  {{!Cards}}
   <div class="row">
-   
-   {{#each}}
+
+    {{#each Product}}
 
     <div class="col s3 m6 cater-item-card">
       <div class="card">
@@ -56,5 +57,5 @@
       </div>
     </div>
 
+  {{/each}}
   </div>
-  
