@@ -2,19 +2,19 @@ const router = require("express").Router();
 const db = require("../models");
 
 router.get("/", function (req, res) {
-    var hbsObject = {}
+    const hbsObject = {}
     return res.render("owner-dash-home", hbsObject);
 });
 
 // render category data to category page
 router.get("/category", function (req, res) {
     db.Category.findAll().then(function (data) {
-        var categoryArray = []
+        const categoryArray = []
         data.forEach(element => {
-            var item = element.toJSON()
+            const item = element.toJSON()
             categoryArray.push(item)
         });
-        var hbsObject = {
+        const hbsObject = {
             categories: categoryArray
         }
         console.log(hbsObject)
@@ -27,12 +27,12 @@ router.get("/category", function (req, res) {
 // render extra data to extra items page
 router.get("/extra", function (req, res) {
     db.Extra.findAll().then(function (data) {
-        var extraArray = []
+        const extraArray = []
         data.forEach(element => {
-            var item = element.toJSON()
+            const item = element.toJSON()
             extraArray.push(item)
         });
-        var hbsObject = {
+        const hbsObject = {
             extras: extraArray
         }
         console.log(hbsObject)
@@ -50,8 +50,8 @@ router.get("/product", function (req, res) {
         // console.log(data)
         var productArray = []
         data.forEach(element => {
-            var item = element.toJSON()
-            productArray.push(item)
+            const item = element.toJSON();
+            productArray.push(item);
         });
         db.Category.findAll().then(function (data) {
             var categoryArray = []
@@ -122,12 +122,12 @@ router.get("/product-edit", function (req, res) {
 
 router.get("/productAddOn", function (req, res) {
     db.ProductAddOn.findAll().then(function (data) {
-        var productAddOnArray = []
+        const productAddOnArray = []
         data.forEach(element => {
-            var item = element.toJSON()
+            const item = element.toJSON()
             productAddOnArray.push(item)
         });
-        var hbsObject = {
+        const hbsObject = {
             productAddOns: productAddOnArray
         }
         console.log(hbsObject)
@@ -139,12 +139,12 @@ router.get("/productAddOn", function (req, res) {
 
 router.get("/size", function (req, res) {
     db.Size.findAll().then(function (data) {
-        var sizeArray = []
+        const sizeArray = []
         data.forEach(element => {
-            var item = element.toJSON()
+            const item = element.toJSON()
             sizeArray.push(item)
         });
-        var hbsObject = {
+        const hbsObject = {
             sizes: sizeArray
         }
         console.log(hbsObject)
@@ -157,12 +157,12 @@ router.get("/size", function (req, res) {
 // edit this route for the owner user control panel
 router.get("/user", function (req, res) {
     db.User.findAll().then(function (data) {
-        var userArray = []
+        const userArray = []
         data.forEach(element => {
-            var item = element.toJSON()
+            const item = element.toJSON()
             userArray.push(item)
         });
-        var hbsObject = {
+        const hbsObject = {
             users: userArray
         }
         console.log(hbsObject)

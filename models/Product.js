@@ -11,14 +11,25 @@ module.exports = function (sequelize, DataTypes) {
         in_stock: {
             type: DataTypes.BOOLEAN,
             defaultValue: "1"
-        }
+        },
+        piccino: DataTypes.INTEGER,
+        small: DataTypes.INTEGER,
+        medium: DataTypes.INTEGER,
+        large: DataTypes.INTEGER,
+        x_large: DataTypes.INTEGER,
+        smallsquare: DataTypes.INTEGER,
+        largesqaure: DataTypes.INTEGER,
+        family: DataTypes.INTEGER,
+        full: DataTypes.INTEGER,
+        regular: DataTypes.INTEGER,
+        deluxe: DataTypes.INTEGER
     });
 
     Product.associate = function (models) {
         Product.hasMany(models.Price);
         Product.belongsTo(models.Category, {
             foreignKey: {
-                allowNull: false
+                allowNutll: false
             }
         });
         Product.belongsTo(models.Image, {
@@ -26,19 +37,8 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
+        Product.hasMany(models.Price);
     };
-
-    // Product.associate = function (models) {
-    //     // Product.belongsTo(models.Image, {
-    //     //     foreignKey: {
-    //     //         allowNull: false
-    //     //     }
-    //     // });
-    // };
-
-    // Product.associate = function (models) {
-    //     Product.hasMany(models.Price);
-    // };
 
     return Product;
 };

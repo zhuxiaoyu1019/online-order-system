@@ -15,13 +15,10 @@ const upload = require("../config/multer");
 
 // product page - upload image 
 router.post("/image", upload.single("image"), async (req, res) => {
-    const {
-        name
-    } = req.body;
     try {
         const result = await cloundinary.uploader.upload(req.file.path);
         Image.create({
-            name,
+            name: req.body.name,
             secure_url: result.secure_url,
             cloundinary_id: result.public_id
         }).then(data => {
@@ -105,13 +102,35 @@ router.post("/product-new", (req, res) => {
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure,
+        family,
+        full,
+        regular,
+        deluxe
     } = req.body;
     Product.create({
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure,
+        family,
+        full,
+        regular,
+        deluxe
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -126,13 +145,27 @@ router.put("/product", (req, res) => {
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     } = req.body;
     Product.update({
         name,
         description,
         ImageId,
-        CategoryId
+        CategoryId,
+        piccino,
+        small,
+        medium,
+        larger,
+        x_large,
+        smallsquare,
+        largesqaure
     }, {
         where: {
             id
@@ -146,12 +179,9 @@ router.put("/product", (req, res) => {
 
 // product page - delete a product
 router.delete("/product/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     Product.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
@@ -163,11 +193,8 @@ router.delete("/product/:id", (req, res) => {
 
 // category page - create new category 
 router.post("/category", (req, res) => {
-    const {
-        name
-    } = req.body;
     Category.create({
-        name
+        name: req.body.name
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -196,12 +223,9 @@ router.put("/category", (req, res) => {
 
 //category page - delete category
 router.delete("/category/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     Category.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
@@ -248,14 +272,12 @@ router.put("/extra", (req, res) => {
     });
 });
 
+
 // extra page - update extra item 
 router.delete("/extra/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     Extra.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
@@ -305,12 +327,9 @@ router.put("/price", (req, res) => {
 
 // price page - delete price 
 router.delete("/price/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     Price.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
@@ -322,11 +341,8 @@ router.delete("/price/:id", (req, res) => {
 // size page - create new size
 
 router.post("/size", (req, res) => {
-    const {
-        size
-    } = req.body;
     Size.create({
-        size
+        size: req.body.size
     }).then(data => {
         res.json(data);
     }).catch(err => {
@@ -337,11 +353,8 @@ router.post("/size", (req, res) => {
 // size page - update size
 
 router.put("/size/:id", (req, res) => {
-    const {
-        size
-    } = req.body;
     Size.update({
-        size
+        size: req.body.size
     }, {
         where: {
             id: req.params.id
@@ -355,12 +368,9 @@ router.put("/size/:id", (req, res) => {
 
 // size page - delete size 
 router.delete("/size/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     Size.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
@@ -370,7 +380,6 @@ router.delete("/size/:id", (req, res) => {
 });
 
 // productAddon page - create productAddOn
-
 router.post("/productAddOn", (req, res) => {
     const {
         ProductId,
@@ -387,7 +396,6 @@ router.post("/productAddOn", (req, res) => {
 });
 
 // productAddOn page - update productAddOn
-
 router.put("/productAddOn/:id", (req, res) => {
     const {
         ProductId,
@@ -409,12 +417,9 @@ router.put("/productAddOn/:id", (req, res) => {
 
 // productAddOn page - delete productAddOn 
 router.delete("/productAddOn/:id", (req, res) => {
-    const {
-        id
-    } = req.params;
     ProductAddOn.destroy({
         where: {
-            id
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);
