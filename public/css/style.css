@@ -54,7 +54,7 @@ h1 {
     
 }
 
-.brand-logo, img {
+.brand-logo, .logo-img {
     height: 10vh;
     position: absolute;
 
