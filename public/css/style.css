@@ -30,14 +30,32 @@ body {
     float: right
 }
 
-/*Customer Home Page*/
+/*Customer Pages*/
+h1 {
+    font-weight: 750;
+    margin: 0 0 1rem;
+    padding: 0;
+    line-height: 1;
+    font-size: 5vw;
+    @media (max-width: 400px) {
+      font-size: 22px;
+    }
+    @media (min-width: 1200px) {
+      font-size: 75px;
+    }
+  }
 
 
-
-/* Navbar*/
-
-
+/* Navigation*/
+.nav_bar {
+    background-color: black;
+    
+}
 
 /* Login */
 
-
+/*Menu and Catering Tabs*/
+/* 
+.tab {
+    
+} */
