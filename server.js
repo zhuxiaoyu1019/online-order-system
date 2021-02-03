@@ -32,6 +32,10 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+app.get("/", (req, res) => {
+    res.redirect("/pizzacutter");
+})
+
 const userRoutes = require("./controllers/user_controller");
 app.use("/pizzacutter", userRoutes);
 
