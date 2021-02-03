@@ -6,11 +6,11 @@
 }
 
 .title {
-    font-weight: 750;
+    font-weight: 700;
     margin: 0 0 1rem;
     padding: 0;
     line-height: 1;
-    font-size: 5vw;
+    font-size: 3vw;
 
     @media (max-width: 400px) {
         font-size: 22px;
