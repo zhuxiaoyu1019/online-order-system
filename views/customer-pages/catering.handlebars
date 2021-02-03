@@ -1,17 +1,21 @@
 {{> customer-nav }}
 
-<div class="container">
 
-<h1 class="center title">Catering</h1>
-
-<p class="center">Pizza Cutter has many catering options, including salads and pasta trays. We offer a special discount
-  for customers
-  purchasing 10+ pizzas. Call and speak to a manager to order today!
-</p>
-
-</div>
-
+{{!Here's we add the catering category buttons via Materialize tabs}}
 <div class="row">
+
+   <div class="catering_box">
+
+    <h1 class="center title">Catering</h1>
+
+    <p class="center catering_text">Pizza Cutter has many catering options, including salads and pasta trays. We offer a
+      special
+      discount
+      for customers
+      purchasing 10+ pizzas. Call and speak to a manager to order today!
+    </p>
+
+  </div>
 
   <div class="col s12">
     <ul class="tabs">
@@ -24,53 +28,71 @@
     </ul>
   </div>
 
-   <div id="test1" class="col s12 center title">
-    <h1>Pizza</h1>
-  </div>
+  {{!-- <div class="catering_box">
 
-  <div id="test2" class="col s12 center title">
-    <h1>Submarines</h1>
-  </div>
+    <h1 class="center title">Catering</h1>
 
-  <div id="test3" class="col s12 center title">
-    <h1>Salads</h1>
-  </div>
+    <p class="center catering_text">Pizza Cutter has many catering options, including salads and pasta trays. We offer a
+      special
+      discount
+      for customers
+      purchasing 10+ pizzas. Call and speak to a manager to order today!
+    </p>
 
-  <div id="test4" class="col s12 center title">
-    <h1>Wings</h1>
-  </div>
+  </div> --}}
 
-  <div id="test5" class="col s12 center title">
-    <h1>Stix</h1>
-  </div>
+  <div>
+    <div id="test1" class="col s12 center">
+      <h3>Pizza</h3>
+    </div>
 
-  <div id="test6" class="col s12 center title">
-    <h1>Extras</h1>
-  </div>
+    <div id="test2" class="col s12 center">
+      <h1>Submarines</h1>
+    </div>
 
+    <div id="test3" class="col s12 center">
+      <h1>Salads</h1>
+    </div>
+
+    <div id="test4" class="col s12 center">
+      <h1>Wings</h1>
+    </div>
+
+    <div id="test5" class="col s12 center">
+      <h1>Stix</h1>
+    </div>
+
+    <div id="test6" class="col s12 center">
+      <h1>Extras</h1>
+    </div>
+  </div>
   {{!Cards}}
 
   <div class="row">
     {{#each products}}
-
     <div class="col s3 m4 menu-item-card">
-      <div class="card">
+      <div class="card hoverable">
         <div class="card-image">
 
           {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
-          <img src=""> {{Image}}
+          <img
+            src="https://lh3.googleusercontent.com/proxy/G5lMr_SU7VghyjkiU1eOuBbSz8XeCjNnMTJBBDCHclP7uNXbw5IJ9DCO2SKOdpNMNlu6rS3HZ0qBJs2vth91qn928j3JtFhkeArN7UtNw8QmEg36_dwjgG2RMLAyoba3ENFPOOeWoVqsrbnxSyDQVnDfxnI">
+          {{Image}}
 
           <span class="card-title">{{name}}</span>
 
-          <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">expand_more</i></a>
+          <a class="btn-floating halfway-fab waves-effect waves-light red">
+            <i class="activator material-icons">expand_more</i>
+          </a>
+
         </div>
 
+        <div class="card-content"></div>
+
         <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">s<i class="material-icons right">close</i></span>
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
           <h4>Product Details</h4>
           <p>{{description}}</p>
-
-
         </div>
 
       </div>
@@ -79,6 +101,5 @@
     {{/each}}
 
   </div>
-
 
   {{> customer-footer }}

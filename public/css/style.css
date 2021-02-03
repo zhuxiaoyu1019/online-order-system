@@ -8,7 +8,6 @@
 .title {
     font-weight: 700;
     margin: 0 0 1rem;
-    padding: 0;
     line-height: 1;
     font-size: 3vw;
 
@@ -88,10 +87,8 @@ footer {
 
 }
 
-/* Login */
 .container {
     display: inline-block; 
-    padding: 20px;
     width: 100%;
     margin-left: 10em;
     margin-right: 10em;   
@@ -104,8 +101,10 @@ footer {
     margin: auto;
 }
 
-/*Menu and Catering Tabs*/
-
+/* Menu and Catering Tabs*/
+.catering_text{
+    font-size: 25px;
+}
 
 /*Owner Dashboard*/
 
@@ -146,4 +145,9 @@ footer {
 .delete-button,
 .edit-button {
     float: left
+}
+
+.catering_box{
+    background-color: #303032;
+    color: white;
 }
