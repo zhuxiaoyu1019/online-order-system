@@ -1,151 +1,43 @@
 {{!-- login --}}
 {{> customer-nav }}
 
+<body class="pages-style">
+    <h1 class="title">Login</h1>
 
-<div class="center container">
-
-    {{!Login Form}}
-
-    {{!-- <div id="login-page center" class="row">
-        <div class="col s4 z-depth-6 card-panel">
-            <form class="login-form action">
-
+    <div id="login-page" class="row">
+        <div class="col s12 z-depth-6 card-panel grey darken-3">
+            <form class="login-form">
                 <div class="row">
-                    <h2>Login</h2>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input class="validate input-field" id="email" type="email">
+                        <label for="email" data-error="wrong" data-success="right">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password">
+                        <label for="password">Password</label>
+                    </div>
                 </div>
 
                 <div class="row">
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input id="username" type="text">
-                        <label for="username">Username</label>
+                    <div class="input-field col s6">
+                        <a href="#" class="btn waves-effect waves-light red col s12">Login</a>
                     </div>
-                </div> --}}
-
+                </div>
                 <div class="row">
-                    <div class="input-field col s10">
-
-                        <body class="pages-style">
-
-
-                            <h1 class="title">Login</h1>
-
-                            <div id="login-page" class="row">
-                                <div class="col s12 z-depth-6 card-panel grey darken-3">
-                                    <form class="login-form">
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <i class="material-icons prefix">mail_outline</i>
-                                                <input class="validate input-field" id="email" type="email">
-                                                <label for="email" data-error="wrong" data-success="right">Email</label>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <i class="material-icons prefix">lock_outline</i>
-                                                <input id="password" type="password">
-                                                <label for="password">Password</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s10 m10 l0  login-text">
-                                                <label>
-                                                    <input type="checkbox" id="remember-me" />
-                                                    <span>Remember Me</span>
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="center input-field submit col s8 s8">
-                                                <a href="/pizzacutter/dashboard" class="btn waves-effect waves-light"
-                                                    type="submit" name="action">Login
-
-                                                    {{!-- <i class="material-icons right">login</i> --}}
-
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s8 m8 l8">
-                                                <a class="activator margin medium-small register-now"><a
-                                                        href="#">Register Now!</a>
-                                            </div>
-
-                                            {{!-- <div class="input-field col s6 m6 l6">
-                                                <p class="margin right-align medium-small"><a href="#">Forget
-                                                        password?</a></p>
-                                            </div> --}}
-
-                                        </div>
-
-                                    </form>
-
-                                </div>
-                            </div>
-{{!-- 
-                            {{!Registration form}}
-
-                            <div id="registration-page" class="row">
-                                <div class="col s4 z-depth-6 card-panel">
-                                    <form class="login-form action">
-
-                                        <div class="row">
-                                            <h2>Register</h2>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s10">
-                                                <i class="material-icons prefix">account_circle</i>
-                                                <input id="username" type="text">
-                                                <label for="username">Username</label>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="input-field col s10">
-                                                <i class="material-icons prefix">lock_outline</i>
-                                                <input id="password" type="password">
-                                                <label for="password">Password</label>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="row">
-                                            <div class="center input-field signup col s8 s8">
-                                                <a href="/pizzacutter/login" class="btn waves-effect" type="submit"
-                                                    name="action">Sign-up!
-
-                                                </a>
-                                            </div>
-                                        </div>
-                                        {{!-- <div class="row">
-                                            <div class="input-field col s12 m12 l12  login-text">
-                                                <input type="checkbox" id="remember-me" />
-                                                <label for="remember-me">Remember me</label>
-                                            </div>
-                                        </div> --}}
-                                        <div class="row">
-                                            <div class="input-field col s6">
-                                                <a href="#" class="btn waves-effect waves-light red col s12">Login</a>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="input-field col s3">
-                                                <p class="margin medium-small"><a href="#" class="login-link">Register
-                                                        Now!</a></p>
-                                            </div>
-                                            <div class="input-field col s3">
-                                                <p class="margin right-align medium-small"><a href="#"
-                                                        class="login-link">Forget password?</a>
-                                                </p>
-                                            </div>
-                                        {{!-- </div> --}}
-
-                                    </form>
-
-                                </div>
-                            </div>
-                        </body>
+                    <div class="input-field col s3">
+                        {{!-- <p class="margin medium-small"><a href="#" class="login-link">Register Now!</a></p> --}}
+                    </div>
+                    <div class="input-field col s3">
+                        <p class="margin right-align medium-small"><a href="#" class="login-link">Forget
+                                password?</a>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
