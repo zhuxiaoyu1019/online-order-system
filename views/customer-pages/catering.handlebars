@@ -5,7 +5,7 @@
 {{!Here's we add the catering category buttons via Materialize tabs}}
 <div class="row">
 
-   <div class="box">
+  <div class="box">
 
     <h1 class="center title">Catering</h1>
 
@@ -80,7 +80,8 @@
             src="https://lh3.googleusercontent.com/proxy/G5lMr_SU7VghyjkiU1eOuBbSz8XeCjNnMTJBBDCHclP7uNXbw5IJ9DCO2SKOdpNMNlu6rS3HZ0qBJs2vth91qn928j3JtFhkeArN7UtNw8QmEg36_dwjgG2RMLAyoba3ENFPOOeWoVqsrbnxSyDQVnDfxnI">
           {{Image}}
 
-          <span class="card-title">{{name}}</span>
+          {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
+          <img src={{image_id}}>
 
           <a class="btn-floating halfway-fab waves-effect waves-light red">
             <i class="activator material-icons">expand_more</i>
@@ -97,11 +98,19 @@
           <p>{{Size}}</p>
         </div>
 
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+          <h4>Product Details</h4>
+          <p>{{description}}</p>
+          <p>{{Size}}</p>
+        </div>
+
       </div>
     </div>
 
     {{/each}}
 
   </div>
+  </body>
 
   {{> customer-footer }}

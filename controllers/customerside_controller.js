@@ -24,11 +24,12 @@ router.get("/about", (req, res) => {
 
 router.get("/menu", (req, res) => {
     db.Product.findAll({
-        include: [db.Image, db.Category]
+        include: [db.Category]
     }).then(function (data) {
-        console.log(data)
+
         var productArray = []
         data.forEach(element => {
+
             const item = element.toJSON();
             productArray.push(item);
         });
@@ -52,7 +53,7 @@ router.get("/menu", (req, res) => {
 
 router.get("/catering", (req, res) => {
     db.Product.findAll({
-        include: [db.Image, db.Category]
+        include: [db.Category]
     }).then(function (data) {
         console.log(data)
         var productArray = []
