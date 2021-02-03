@@ -4,9 +4,7 @@ module.exports = function (sequelize, DataTypes) {
         price: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [1]
-            }
+            min: 0
         }
     });
 

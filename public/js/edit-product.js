@@ -2,18 +2,18 @@ $(document).ready(function () {
     let imageId = "";
 
     M.updateTextFields();
-    $(document).on("click", "#edit-btn", editProduct);
+    $(document).on("click", ".edit-button", editProduct);
     $(".in-stock").on("change", switchStockState);
     $("#product-size").on("change", selectedSize);
-    $(document).on("input", ".price", priceUpdate);
+    $(document).on("submit", ".sizePriceTbl", priceUpdate);
     $(document).on("click", ".delete-button", deleteSize);
     $("#submit-update").click(updateForm);
 
     document.getElementById("upload_widget").addEventListener("click", function (e) {
         e.preventDefault();
         const uploadWidget = cloudinary.openUploadWidget({
-            cloudName: "drdwcvbe8", //process.env.CLOUDINARY_CLOUND_NAME,
-            uploadPreset: "sfdymlzn", //process.env.CLOUNDINARY_UPLOAD_PRESENT,
+            cloudName: "drdwcvbe8",
+            uploadPreset: "sfdymlzn",
             sources: [
                 "facebook",
                 "dropbox",
@@ -31,7 +31,9 @@ $(document).ready(function () {
     }, false);
 
     function editProduct() {
+        console.log("click")
         const id = $(this).data("id");
+        console.log(id)
         window.location.href = "/pizzacutter/dashboard/product-edit/" + id;
     }
 
@@ -71,7 +73,9 @@ $(document).ready(function () {
                             data[index].name,
                             "</td>",
                             "<td>",
+                            "<form class='sizePriceTbl'>",
                             `<input type='text' class="price" data-id=${data[index].id} value=${data[index].price / 100}>`,
+                            "</form>",
                             "</td>",
                             `<td><a class="waves-effect waves-light btn delete-button" data-id=${data[index].id}><i class="material-icons">delete</i></a></td>`,
                             "</tr>"
@@ -85,7 +89,9 @@ $(document).ready(function () {
                             element,
                             "</td>",
                             "<td>",
+                            "<form class='sizePriceTbl'>",
                             "<input type='text' class='price'>",
+                            "</form>",
                             "</td>",
                             `<td><a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn">delete</i></a></td>`,
                             "</tr>"
@@ -97,12 +103,15 @@ $(document).ready(function () {
         });
     }
 
-    function priceUpdate() {
+    function priceUpdate(e) {
+        e.preventDefault();
+        console.log("click");
         const id = $("tbody").data("id");
-        const sizeId = $(this).data("id");
+        const sizeId = $(this).children("input").data("id");
+        console.log(sizeId);
         const updatedPriceObj = {
             name: $(this).parent().prev('td').text(),
-            price: $(this).val(),
+            price: $(this).children("input").val(),
             ProductId: id
         }
         if (sizeId === undefined) {
@@ -112,7 +121,9 @@ $(document).ready(function () {
                 type: 'POST',
                 data: updatedPriceObj
             }).then(() => {
-                window.location.reload();
+                // window.location.reload();
+            }).fail(err => {
+                console.log(err);
             });
         } else {
             //put
@@ -121,7 +132,7 @@ $(document).ready(function () {
                 type: 'PUT',
                 data: updatedPriceObj
             }).then(() => {
-                window.location.reload();
+                // window.location.reload();
             });
         }
     }

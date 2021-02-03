@@ -120,7 +120,12 @@ router.get("/product-edit/:id", function (req, res) {
                 sizeData.forEach(element => {
                     const item = element.toJSON()
                     existSizes.push(item.name);
-                    sizeWithPrice.push(item);
+                    const size = {
+                        id: item.id,
+                        name: item.name,
+                        price: parseInt(item.price) / 100
+                    }
+                    sizeWithPrice.push(size);
                 });
                 const sizeList = ["piccino", "small", "medium", "large", "x_large", "smallsquare", "largesquare", "family", "full", "regular", "deluxe"];
                 const sizeArr = [];
@@ -145,7 +150,6 @@ router.get("/product-edit/:id", function (req, res) {
                     sizes: sizeArr,
                     sizeWithPrice
                 };
-                console.log(hbsObject)
                 return res.render("owner-dashboard-pages/product-edit", hbsObject);
             });
         });
