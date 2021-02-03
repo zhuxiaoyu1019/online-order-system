@@ -31,7 +31,6 @@ $(document).ready(function () {
     }, false);
 
     function editProduct() {
-        console.log("click")
         const id = $(this).data("id");
         console.log(id)
         window.location.href = "/pizzacutter/dashboard/product-edit/" + id;
@@ -105,10 +104,8 @@ $(document).ready(function () {
 
     function priceUpdate(e) {
         e.preventDefault();
-        console.log("click");
         const id = $("tbody").data("id");
         const sizeId = $(this).children("input").data("id");
-        console.log(sizeId);
         const updatedPriceObj = {
             name: $(this).parent().prev('td').text(),
             price: $(this).children("input").val(),
@@ -121,7 +118,7 @@ $(document).ready(function () {
                 type: 'POST',
                 data: updatedPriceObj
             }).then(() => {
-                // window.location.reload();
+                window.location.reload();
             }).fail(err => {
                 console.log(err);
             });
@@ -132,7 +129,7 @@ $(document).ready(function () {
                 type: 'PUT',
                 data: updatedPriceObj
             }).then(() => {
-                // window.location.reload();
+                window.location.reload();
             });
         }
     }

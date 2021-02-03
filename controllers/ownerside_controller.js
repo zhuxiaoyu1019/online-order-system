@@ -93,8 +93,18 @@ router.get("/product-new", function (req, res) {
             var item = element.toJSON()
             categoryArray.push(item)
         });
+        const sizeList = ["piccino", "small", "medium", "large", "x_large", "smallsquare", "largesquare", "family", "full", "regular", "deluxe"];
+        const sizeArr = [];
+        sizeList.map(size => {
+            let sizeObj = {}
+            sizeObj = {
+                name: size,
+            }
+            sizeArr.push(sizeObj);
+        })
         var hbsObject = {
             categories: categoryArray,
+            sizes: sizeArr
         }
         return res.render("owner-dashboard-pages/product-new", hbsObject);
     });
