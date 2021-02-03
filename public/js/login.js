@@ -1,6 +1,6 @@
 (document).ready(function () {
 
-$(document).on("click", "register-now", renderRegistrationform);
+$(document).on("click", "submit", renderRegistrationform);
 // const registrationForm = $("#registration-page");
 const loginForm = $("#login-page");
 
