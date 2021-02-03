@@ -32,8 +32,8 @@ $(document).ready(function () {
 
 
     //size
-    $(document).on("submit", "#size-input", insertSize);
-    $(document).on("click", "#delete-btn", deleteSize);
+    // $(document).on("submit", "#size-input", insertSize);
+    // $(document).on("click", "#delete-btn", deleteSize);
     const $newSizeInput = $("#size-name");
 
     // new category
