@@ -31,6 +31,11 @@ $(document).ready(function () {
 
     //edit product
 
+    //size
+    // $(document).on("submit", "#size-input", insertSize);
+    // $(document).on("click", "#delete-btn", deleteSize);
+    const $newSizeInput = $("#size-name");
+
     // new category
     function insertCategory(event) {
         event.preventDefault();

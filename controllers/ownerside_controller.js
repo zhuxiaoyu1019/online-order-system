@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { diskStorage } = require("multer");
 const db = require("../models");
 
 router.get("/", function (req, res) {
@@ -43,7 +44,7 @@ router.get("/extra", function (req, res) {
 // render products and categories to product page 
 router.get("/product", function (req, res) {
     db.Product.findAll({
-        include: [db.Image, db.Category]
+        include: [db.Category]
     }).then(function (productList) {
         const productArray = []
         productList.forEach(element => {
@@ -72,7 +73,7 @@ router.get("/product/:name", function (req, res) {
         where: {
             name: req.params.name
         },
-        include: [db.Image, db.Category]
+        include: [db.Category]
     }).then(function (data) {
         // console.log(data)
         res.json(data)
@@ -103,7 +104,7 @@ router.get("/product-new", function (req, res) {
 router.get("/product-edit/:id", function (req, res) {
     db.Product.findOne({
         where: { id: req.params.id },
-        include: [db.Category, db.Image]
+        include: [db.Category]
     }).then(function (editProduct) {
         db.Category.findAll().then(function (categoryList) {
             const categoryArray = []
@@ -113,57 +114,40 @@ router.get("/product-edit/:id", function (req, res) {
                     categoryArray.push(item);
                 }
             });
-            const sizes = [{
-                name: "piccino",
-                price: editProduct.piccino ? true : false
-            },
-            {
-                name: "small",
-                price: editProduct.small ? true : false
-            },
-            {
-                name: "medium",
-                price: editProduct.medium ? true : false
-            },
-            {
-                name: "large",
-                price: editProduct.large ? true : false
-            },
-            {
-                name: "x_large",
-                price: editProduct.x_large ? true : false
-            },
-            {
-                name: "smallsquare",
-                price: editProduct.smallsquare ? true : false
-            },
-            {
-                name: "largesquare",
-                price: editProduct.largesquare ? true : false
-            },
-            {
-                name: "family",
-                price: editProduct.family ? true : false
-            },
-            {
-                name: "full",
-                price: editProduct.full ? true : false
-            },
-            {
-                name: "regular",
-                price: editProduct.regular ? true : false
-            },
-            {
-                name: "deluxe",
-                price: editProduct.deluxe ? true : false
-            }
-            ]
-            const hbsObject = {
-                product: editProduct.toJSON(),
-                categories: categoryArray,
-                sizes
-            };
-            return res.render("owner-dashboard-pages/product-edit", hbsObject);
+            db.Size.findAll({ where: { ProductId: req.params.id } }).then(sizeData => {
+                const existSizes = []
+                const sizeWithPrice = []
+                sizeData.forEach(element => {
+                    const item = element.toJSON()
+                    existSizes.push(item.name);
+                    sizeWithPrice.push(item);
+                });
+                const sizeList = ["piccino", "small", "medium", "large", "x_large", "smallsquare", "largesquare", "family", "full", "regular", "deluxe"];
+                const sizeArr = [];
+                sizeList.map(size => {
+                    let sizeObj = {}
+                    if (existSizes.includes(size)) {
+                        sizeObj = {
+                            name: size,
+                            price: true
+                        }
+                    } else {
+                        sizeObj = {
+                            name: size,
+                            price: false
+                        }
+                    }
+                    sizeArr.push(sizeObj);
+                })
+                const hbsObject = {
+                    product: editProduct.toJSON(),
+                    categories: categoryArray,
+                    sizes: sizeArr,
+                    sizeWithPrice
+                };
+                console.log(hbsObject)
+                return res.render("owner-dashboard-pages/product-edit", hbsObject);
+            });
         });
     });
 });
