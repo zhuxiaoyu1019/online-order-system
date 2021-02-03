@@ -175,3 +175,18 @@ footer {
 .edit-button {
     float: left
 }
+
+.delete-button-category {
+    float: right;
+}
+
+#save-cat-header {
+    font-family: 'Bungee', cursive;
+}
+
+.category-table-items {
+    margin-left: 50%;
+    font-size: 20pt;
+    color: #ff4f09c5;
+    /* margin-right: 10%; */
+}
