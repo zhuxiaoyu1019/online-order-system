@@ -98,6 +98,7 @@ footer {
 
 #login-page {
     margin: auto;
+    justify-content: center;
 }
 .card-panel {
     margin: auto;
