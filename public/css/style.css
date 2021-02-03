@@ -77,12 +77,14 @@ footer {
 /* Navigation*/
 .nav_bar {
     background-color: #303032;
+    height: 10vh;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
+    font-weight: 600;
 
 }
 
 .brand-logo,
 .logo-img {
-    height: 10vh;
     position: absolute;
 
 }
@@ -147,7 +149,7 @@ footer {
     float: left
 }
 
-.catering_box{
+.box{
     background-color: #303032;
     color: white;
 }
