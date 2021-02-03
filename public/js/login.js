@@ -1,14 +1,13 @@
 (document).ready(function () {
 
 $(document).on("click", "register-now", renderRegistrationform);
-
-const registrationForm = $("#registration-page");
+// const registrationForm = $("#registration-page");
 const loginForm = $("#login-page");
 
-function $renderRegistrationform(){
-    loginForm.append(RegistrationForm) 
+// function $renderRegistrationform(){
+//     loginForm.append(RegistrationForm) 
 
-};
+// };
 
 $("#login").submit(event => {
     event.preventDefault();
