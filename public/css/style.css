@@ -122,7 +122,7 @@ footer {
 .nav_bar {
     background-color: #303032;
     height: 10vh;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
     font-weight: 600;
 
 }
@@ -134,22 +134,23 @@ footer {
 }
 
 .container {
-    display: inline-block; 
+    display: inline-block;
     width: 100%;
     margin-left: 10em;
-    margin-right: 10em;   
+    margin-right: 10em;
 }
 
 #login-page {
     margin: auto;
     justify-content: center;
 }
+
 .card-panel {
     margin: auto;
 }
 
 /* Menu and Catering Tabs*/
-.catering_text{
+.catering_text {
     font-size: 25px;
 }
 
@@ -194,7 +195,22 @@ footer {
     float: left
 }
 
-.box{
+.delete-button-category {
+    float: right;
+}
+
+#save-cat-header {
+    font-family: 'Bungee', cursive;
+}
+
+.category-table-items {
+    margin-left: 50%;
+    font-size: 20pt;
+    color: #ff4f09c5;
+    /* margin-right: 10%; */
+}
+
+.box {
     background-color: #303032;
     color: white;
 }
