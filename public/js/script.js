@@ -16,8 +16,8 @@ $(document).ready(function () {
 
     //product 
     // $(document).on("submit", "#product-search", searchProducts);
-    $(document).on("click", "#delete-btn", deleteProduct);
-    $(document).on("click", "#edit-btn", editProduct);
+    $(document).on("click", ".delete-btn", deleteProduct);
+    // $(document).on("click", "#edit-btn", editProduct);
     $(document).on("submit", ".search-form", searchProducts);
     const $tableContent = $("#product-list")
 
@@ -125,22 +125,22 @@ $(document).ready(function () {
     }
 
     // edit product
-    function editProduct(event) {
-        event.preventDefault();
-        const product = {
-            name: $newProductName.val().trim(),
-            description: $newProductDesc.val().trim(),
-            in_stock: $inStock
-        };
-        $.ajax("/pizzacutter/dashboard/product-edit", {
-            type: "PUT",
-            data: product
-        }).then(() => {
-            // Reload the page to get the updated list
-            console.log("product created")
-            location.reload();
-        });
-    }
+    // function editProduct(event) {
+    //     event.preventDefault();
+    //     const product = {
+    //         name: $newProductName.val().trim(),
+    //         description: $newProductDesc.val().trim(),
+    //         in_stock: $inStock
+    //     };
+    //     $.ajax("/pizzacutter/dashboard/product-edit", {
+    //         type: "PUT",
+    //         data: product
+    //     }).then(() => {
+    //         // Reload the page to get the updated list
+    //         console.log("product created")
+    //         location.reload();
+    //     });
+    // }
 
     //extra 
     $(document).on("submit", "#extra-input", insertExtra);

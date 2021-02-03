@@ -41,6 +41,7 @@ router.delete("/product/:id", (req, res) => {
     }).then(data => {
         res.json(data);
     }).catch(err => {
+        console.log(err)
         res.status(500).json(err);
     });
 });
@@ -153,21 +154,25 @@ router.get("/size/:id", (req, res) => {
 router.post("/size", (req, res) => {
     Size.create({
         name: req.body.name,
-        price: req.body.price.replace(".", ""),
+        price: parseFloat(req.body.price) * 100,
         ProductId: req.body.ProductId
     }).then(data => {
         res.json(data);
     }).catch(err => {
+        console.log(err);
         res.status(500).json(err);
     });
 });
 
 // size page - update size
 router.put("/size/:id", (req, res) => {
-    Size.update(req.body, {
+    Size.update({
+        name: req.body.name,
+        price: parseFloat(req.body.price) * 100,
+        ProductId: req.body.ProductId
+    }, {
         where: {
-            id: req.params.id,
-            ProductId: req.body.ProductId
+            id: req.params.id
         }
     }).then(data => {
         res.json(data);

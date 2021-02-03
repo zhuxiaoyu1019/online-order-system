@@ -41,7 +41,6 @@
             </div>
         </div>
     </div>
-    </div>
     <div class="divider"></div>
 
     <table class="highlight">
@@ -64,10 +63,10 @@
                 <td> {{in_stock}}</td>
                 <td> {{category}}</td>
                 <td> {{secure_url}}</td>
-                <td> <a href='/pizzacutter/dashboard/product-edit' class="waves-effect waves-light btn edit-button"><i
-                            class="material-icons" id="edit-btn" data-id={{id}}>edit</i></a></td>
-                <td> <a class="waves-effect waves-light btn delete-button"><i class="material-icons" id="delete-btn"
-                            data-id={{id}}>delete</i></a></td>
+                <td> <a class="waves-effect waves-light btn edit-button" data-id={{id}}><i
+                            class="material-icons">edit</i></a></td>
+                <td> <a class="waves-effect waves-light btn delete-btn" data-id={{id}}><i
+                            class="material-icons">delete</i></a></td>
             </tr>
             {{/each}}
         </tbody>
