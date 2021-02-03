@@ -7,7 +7,7 @@ router.get("/contact", (req, res) => {
     return res.render("./customer-pages/contact", hbsObject);
 });
 
-router.get("/career", (req, res) => {
+router.get("/careers", (req, res) => {
     var hbsObject = {}
     return res.render("./customer-pages/careers", hbsObject);
 });
