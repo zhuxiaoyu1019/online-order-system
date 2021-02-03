@@ -3,25 +3,34 @@
 {{> customer-nav }}
 
 <body class="home-customer">
+
+
     <div class="row">
-        <div class="col s2" id="pizza-img-container1">
-            <img src="pizza_left.png" id="pizza-left" alt="pizza">
+        <div id="pizza-img-container1">
+            <img src="/images/pizza_left.png" class="pizza" alt="pizza">
+            <div style="width:50%"></div>
+            <img src="/images/pizza_right.png" class="pizza" alt="pizza">
         </div>
-        <div class="col s8 pizz-cutter-home">
+
+        <div class="col s12 home-text">
             <h1>Pizza Cutter</h1>
-            <h4>Serving up local pizzas since 1978!</h4>
-        </div>
-        <div class="col s2" id="pizza-img-container2">
-            <img src="pizza_right.png" id="pizza-left" alt="pizza">
+            <img class="circle responsive-img" src="/images/pizza-cutter-logo.png">
+            <h4>Serving up local pizzas since 1978</h4>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col s6 menu-btn-div">
+                    <a href="/pizzacutter/menu" class="waves-effect waves-light btn red" id="delivery-button"><i
+                            class="material-icons left">local_pizza</i>Menu</a>
+                </div>
+                <div class="col s6 call-btn-div">
+                    <a href="tel:248-348-3333" class="waves-effect waves-light btn grey darken-3" id="call-button"><i
+                            class="material-icons left">phone</i>Call</a>
+                </div>
+            </div>
         </div>
     </div>
 
-    {{!-- <div class="row">
-        <div class="col s4 dashboard-grid">
-            <div class="delivery-button">
-                <a><i class="large material-icons">delivery_dining</i>Delivery</a>
-            </div>
-        </div>
-    </div> --}}
+    {{> customer-footer }}
+
 
 </body>

@@ -1,12 +1,12 @@
 /*Customer Pages*/
 
 .home-customer {
-    background: black
+    background: black;
+    color: #ffffff;
 }
 
 .title {
     font-weight: 750;
-    float: right;
     margin: 0 0 1rem;
     padding: 0;
     line-height: 1;
@@ -21,29 +21,63 @@
     }
 }
 
-#pizza-img-container1,
-#pizza-img-container2 {
-    width: 0.5vw;
-    height: 20vh;
+#pizza-img-container1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+    margin-top: 1%;
 }
 
-#pizz-left {
-    float: left;
-    background-size: contain;
-    width: 10%;
-    height: auto;
+.pizza {
+    width: 25%;
+    padding: 0%;
+    margin: auto;
 }
 
-#pizz-right {
-    background-size: contain;
-    float: right;
-    width: 10%;
-    height: auto;
+.home-text {
+    text-align: center;
+    font-family: 'Saira Stencil One', cursive;
+    letter-spacing: 2px;
+    margin-top: 8%;
 }
+
+
+#delivery-button {
+    margin-top: 5%;
+    padding: 0 30px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin-left: 10%;
+
+}
+
+#call-button {
+    margin-top: 5%;
+    padding: 0 30px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin-right: 10%;
+}
+
+footer {
+    text-align: left;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    background: #3a3236;
+    padding: 1%;
+    font-size: 8pt;
+    letter-spacing: 2px;
+    margin-bottom: 0%;
+}
+
 
 /* Navigation*/
 .nav_bar {
-    background-color: black;
+    background-color: #303032;
 
 }
 
@@ -79,8 +113,8 @@
 }
 
 #dashboard-card {
-    padding-left: 5%;
-    padding-right: 0%;
+    /* padding-left: 5%;
+    padding-right: 0%; */
 }
 
 #home-button,

@@ -26,7 +26,7 @@ router.post("/signup", (req, res) => {
     })
 });
 
-router.get("/login", (req, res) => {
+router.post("/login", (req, res) => {
     const { username, password } = req.body
     User.findOne({
         where: {
@@ -54,7 +54,7 @@ router.get("/login", (req, res) => {
 router.get('/logout', (req, res) => {
     //destroy cookie
     req.session.destroy();
-    res.redirect('/piazzacutter');
+    res.redirect('/pizzacutter');
 })
 
 module.exports = router;
