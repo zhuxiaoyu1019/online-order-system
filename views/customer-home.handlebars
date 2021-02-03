@@ -1,0 +1,45 @@
+{{!-- // comment here --}}
+
+{{> customer-nav }}
+
+<body class="home-customer">
+
+
+    <div class="row">
+        <div id="pizza-img-container1">
+            <img src="/images/pizza_left.png" class="pizza" alt="pizza">
+            <div style="width:50%"></div>
+            <img src="/images/pizza_right.png" class="pizza" alt="pizza">
+        </div>
+
+        <div class="col s12 home-text">
+            <h1>Pizza Cutter</h1>
+            <img class="circle responsive-img" src="/images/pizza-cutter-logo.png">
+            <h4>Serving up local pizzas since 1978</h4>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col s6 menu-btn-div">
+                    <a href="/pizzacutter/menu" class="waves-effect waves-light btn red" id="delivery-button"><i
+                            class="material-icons left">local_pizza</i>Menu</a>
+                </div>
+                <div class="col s6 call-btn-div">
+                    <a href="tel:248-348-3333" class="waves-effect waves-light btn grey darken-3" id="call-button"><i
+                            class="material-icons left">phone</i>Call</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="carousel">
+            <a class="carousel-item" href="#one!"><img src="/images/jack-2.jpeg" class="home-photos"></a>
+            <a class="carousel-item" href="#two!"><img src="/images/jack-jim-2.jpg" class="home-photos"></a>
+            <a class="carousel-item" href="#three!"><img src="/images/jack.jpeg" class="home-photos"></a>
+            <a class="carousel-item" href="#four!"><img src="/images/pizza-cutter.jpeg" class="home-photos"></a>
+        </div>
+    </div>
+
+    {{> customer-footer }}
+
+
+</body>
