@@ -1,6 +1,29 @@
 {{!-- login --}}
 {{> customer-nav }}
 
+
+<div class="center container">
+
+    {{!Login Form}}
+
+    <div id="login-page center" class="row">
+        <div class="col s4 z-depth-6 card-panel">
+            <form class="login-form action">
+
+                <div class="row">
+                    <h2>Login</h2>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s10">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="username" type="text">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s10">
 <body class="pages-style">
 
 
@@ -21,6 +44,78 @@
                         <i class="material-icons prefix">lock_outline</i>
                         <input id="password" type="password">
                         <label for="password">Password</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s10 m10 l0  login-text">
+                        <label>
+                            <input type="checkbox" id="remember-me" />
+                            <span>Remember Me</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="center input-field submit col s8 s8">
+                        <a href="/pizzacutter/dashboard" class="btn waves-effect waves-light" type="submit"
+                            name="action">Login
+
+                            {{!-- <i class="material-icons right">login</i> --}}
+
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s8 m8 l8">
+                        <a class="activator margin medium-small register-now"><a href="#">Register Now!</a>
+                    </div>
+
+                    {{!-- <div class="input-field col s6 m6 l6">
+                        <p class="margin right-align medium-small"><a href="#">Forget password?</a></p>
+                    </div> --}}
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+    {{!Registration form}}
+
+    <div id="registration-page" class="row">
+        <div class="col s4 z-depth-6 card-panel">
+            <form class="login-form action">
+
+                <div class="row">
+                    <h2>Register</h2>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s10">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="username" type="text">
+                        <label for="username">Username</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="input-field col s10">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input id="password" type="password">
+                        <label for="password">Password</label>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="center input-field signup col s8 s8">
+                        <a href="/pizzacutter/login" class="btn waves-effect" type="submit"
+                            name="action">Sign-up!
+
+                        </a>
                     </div>
                 </div>
                 {{!-- <div class="row">
