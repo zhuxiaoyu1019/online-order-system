@@ -3,6 +3,7 @@ $(document).ready(function () {
     $('.tabs').tabs();
     $('select').formSelect();
     $('.collapsible').collapsible();
+    $('.materialboxed').materialbox();
     M.AutoInit();
 
     //category 
@@ -29,12 +30,6 @@ $(document).ready(function () {
     const $newProductPrice = $("#product-price");
 
     //edit product
-
-
-    //size
-    $(document).on("submit", "#size-input", insertSize);
-    $(document).on("click", "#delete-btn", deleteSize);
-    const $newSizeInput = $("#size-name");
 
     // new category
     function insertCategory(event) {
