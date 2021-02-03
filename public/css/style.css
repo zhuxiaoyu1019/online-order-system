@@ -1,7 +1,8 @@
 /*Customer Pages*/
 
 .home-customer {
-    background: black
+    background: black;
+    color: white;
 }
 
 .title {
@@ -20,25 +21,27 @@
     }
 }
 
-#pizza-img-container1,
-#pizza-img-container2 {
-    width: 0.5vw;
-    height: 20vh;
+#pizza-img-container1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
 }
 
-#pizz-left {
-    float: left;
-    background-size: contain;
-    width: 10%;
-    height: auto;
+.pizza {
+    width: 30%;
+    padding: 0%;
+    margin: auto;
 }
 
-#pizz-right {
-    background-size: contain;
-    float: right;
-    width: 10%;
-    height: auto;
+#home-text {
+    text-align: center;
 }
+
+
 
 /* Navigation*/
 .nav_bar {
