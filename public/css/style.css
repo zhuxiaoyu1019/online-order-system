@@ -6,11 +6,14 @@
 }
 
 .title {
+    font-family: 'Saira Stencil One', cursive;
+    letter-spacing: 2px;
     font-weight: 750;
-    margin: 0 0 1rem;
+    margin-top: 2%;
+    margin-left: 2%;
     padding: 0;
     line-height: 1;
-    font-size: 5vw;
+    font-size: 3vw;
 
     @media (max-width: 400px) {
         font-size: 22px;
@@ -38,6 +41,10 @@
     margin: auto;
 }
 
+#jack-jim-img {
+    float: right;
+}
+
 .home-text {
     text-align: center;
     font-family: 'Saira Stencil One', cursive;
@@ -63,6 +70,42 @@
     margin-right: 10%;
 }
 
+.pages-style {
+    background: #3C3636;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    font-size: 16pt;
+}
+
+.about-section {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+    letter-spacing: 1px;
+}
+
+#adjust-about-p {
+    margin-top: 11%;
+}
+
+/* .input-field input[type=email]:focus+label {
+    color: rgb(240, 219, 219);
+} */
+
+.input-field .prefix.active {
+    color: rgb(202, 65, 65);
+}
+
+.login-form {
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+.login-link {
+    color: #ffffff !important;
+}
+
+
 footer {
     text-align: left;
     font-family: 'Open Sans', sans-serif;
@@ -78,19 +121,38 @@ footer {
 /* Navigation*/
 .nav_bar {
     background-color: #303032;
+    height: 10vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
+    font-weight: 600;
 
 }
 
 .brand-logo,
 .logo-img {
-    height: 10vh;
     position: absolute;
 
 }
 
-/* Login */
+.container {
+    display: inline-block;
+    width: 100%;
+    margin-left: 10em;
+    margin-right: 10em;
+}
 
-/*Menu and Catering Tabs*/
+#login-page {
+    margin: auto;
+    justify-content: center;
+}
+
+.card-panel {
+    margin: auto;
+}
+
+/* Menu and Catering Tabs*/
+.catering_text {
+    font-size: 25px;
+}
 
 /*Owner Dashboard*/
 
@@ -131,4 +193,28 @@ footer {
 .delete-button,
 .edit-button {
     float: left
+}
+
+.delete-button-category {
+    float: right;
+}
+
+#save-cat-header {
+    font-family: 'Bungee', cursive;
+}
+
+.category-table-items {
+    margin-left: 50%;
+    font-size: 20pt;
+    color: #ff4f09c5;
+    /* margin-right: 10%; */
+}
+
+.box {
+    background-color: #303032;
+    color: white;
+}
+
+.hidden {
+    display: none;
 }

@@ -4,6 +4,9 @@ $(document).ready(function () {
     $('select').formSelect();
     $('.collapsible').collapsible();
     $('.materialboxed').materialbox();
+    $('.carousel').carousel({
+        fullWidth: true
+    });
     M.AutoInit();
 
     //category 
