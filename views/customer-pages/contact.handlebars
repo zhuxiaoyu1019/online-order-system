@@ -1,4 +1,6 @@
+{{!-- contact us --}}
 {{> customer-nav }}
+<<<<<<< HEAD
 <div class="container">
 <h1 class="title center">Contact</h1>
 
@@ -8,8 +10,58 @@
     <h4>(248) 348-3333</h4>
 
 </div>
+=======
 
+<body class="pages-style">
 
+    <h1 class="title">Get In Touch</h1>
+>>>>>>> development
+
+    <div class="row">
+        <div class="col s6">
+            <h5>Hours and Delivery Times</h5>
+            <div class="divider red"></div>
+            <table class="hours">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Closed</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>11 AM - 9 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>11 AM - 9 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>11 AM - 9 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>11 AM - 10 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday</td>
+                        <td>11 AM - 10 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>3 AM - 8 PM</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+<<<<<<< HEAD
 {{!Contact Form}}
 <div= class="row contact_form center">
     <form class="col s12">
@@ -17,34 +69,50 @@
             <div class="input-field col s4">
                 <input id="name" type="text" class="validate">
                 <label for="name">Name</label>
+=======
+        {{!Contact Form}}
+        <form class="col s6">
+            <h5>Contact Us</h5>
+            <div class="divider red"></div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="name" type="text" class="validate">
+                    <label for="name">Name</label>
+                </div>
+>>>>>>> development
             </div>
-        </div>
 
-        <div class="row">
-            <div class="input-field col s4">
-                <input id="email" type="email" class="validate">
-                <label for="email">Email</label>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col s4">
-                This is an inline input field:
-                <div class="input-field inline">
+            <div class="row">
+                <div class="input-field col s10">
                     <input id="message_inline" type="email" class="validate">
                     <label for="message_inline">Message</label>
                     <span class="helper-text" data-error="wrong" data-success="right"></span>
+
                 </div>
             </div>
-        </div>
 
-        {{!Submit}}
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-        </button>
+            {{!Submit}}
+            <button class="btn waves-effect waves-light red" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
 
+<<<<<<< HEAD
     </form>
     </div>
 </div>
+=======
+        </form>
 
-    {{> customer-footer }}
+        <div class="divider red"></div>
+    </div>
+</body>
+>>>>>>> development
+
+{{> customer-footer }}

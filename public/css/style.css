@@ -6,8 +6,12 @@
 }
 
 .title {
-    font-weight: 700;
-    margin: 0 0 1rem;
+    font-family: 'Saira Stencil One', cursive;
+    letter-spacing: 2px;
+    font-weight: 750;
+    margin-top: 2%;
+    margin-left: 2%;
+    padding: 0;
     line-height: 1;
     font-size: 3vw;
 
@@ -37,6 +41,10 @@
     margin: auto;
 }
 
+#jack-jim-img {
+    float: right;
+}
+
 .home-text {
     text-align: center;
     font-family: 'Saira Stencil One', cursive;
@@ -61,6 +69,42 @@
     letter-spacing: 3px;
     margin-right: 10%;
 }
+
+.pages-style {
+    background: #3C3636;
+    font-family: 'Open Sans', sans-serif;
+    color: #ffffff;
+    font-size: 16pt;
+}
+
+.about-section {
+    margin-right: 10%;
+    margin-left: 10%;
+    margin-top: 5%;
+    letter-spacing: 1px;
+}
+
+#adjust-about-p {
+    margin-top: 11%;
+}
+
+/* .input-field input[type=email]:focus+label {
+    color: rgb(240, 219, 219);
+} */
+
+.input-field .prefix.active {
+    color: rgb(202, 65, 65);
+}
+
+.login-form {
+    margin-left: 6%;
+    margin-top: 2%;
+}
+
+.login-link {
+    color: #ffffff !important;
+}
+
 
 footer {
     text-align: left;
