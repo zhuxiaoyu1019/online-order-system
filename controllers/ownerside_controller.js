@@ -61,6 +61,7 @@ router.get("/product", function (req, res) {
                 categories: categoryArray,
                 products: productArray
             }
+            console.log(hbsObject);
             return res.render("owner-dashboard-pages/product", hbsObject);
         });
 
