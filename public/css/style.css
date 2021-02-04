@@ -168,6 +168,28 @@ footer {
     font-size: 25px;
 }
 
+.tabs .tab a {
+    color: rgba(255, 255, 255, 0.7);
+    /*Custom Text Color*/
+  }
+  
+  .tabs .tab a:hover {
+    color:#eb5d5d;
+    /*Custom Color On Hover*/
+  }
+  
+  .tabs .tab a:focus.active {
+    color:#eb5d5d;
+    /*Custom Text Color While Active*/
+    background-color: #3C3636;
+    /*Custom Background Color While Active*/
+  }
+  
+  .tabs .indicator {
+    background-color:#eb5d5d;
+    /*Custom Color Of Indicator*/
+  }
+
 /*Owner Dashboard*/
 
 .dashboard-header {
