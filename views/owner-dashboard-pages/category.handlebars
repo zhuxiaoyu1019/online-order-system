@@ -1,37 +1,40 @@
 <body class="dashboard">
-
-
-
     <div class="row">
         <div class="col s6 back-button">
-            <button href='/pizzacutter/dashboard/' class="btn-large waves-effect waves-light red admin_nav"><i
-                    class="material-icons dash_nav_button large">home</i></button>
+            <a href='/pizzacutter/dashboard/' class="btn-large waves-effect waves-light red btn tooltipped" data-position="bottom" data-tooltip="Admin Home">
+            <i class="material-icons large">home</i>
+
+            </a>
         </div>
 
         <div class="col s6">
-            <a href='/pizzacutter' class="btn-large waves-effect waves-light red" id="home-button"><i
-                    class="material-icons dash_nav_button large">meeting_room</i></a>
+            <a href='/pizzacutter' class="btn-large waves-effect waves-light red btn tooltipped"
+                data-position="bottom" data-tooltip="Exit Dashboard" id="home-button">
+                <i class="material-icons large">meeting_room</i>
+            </a>
         </div>
 
     </div>
 
+    <h4 class="center">🛠️ </h4>
 
     <h1 class="dashboard-header">Categories</h1>
 
- 
+
     <section class="section admin_edit_section">
-        
+
         <div class="row">
             <form class="col s12" id="category-input">
                 <div class="row">
                     <div class="input-field col s12">
-                     <i class="material-icons prefix">mode_edit</i>   
+                        <i class="material-icons prefix">mode_edit</i>
                         <input id="category-name" type="text">
                         <label for="category-name">Add New Category</label>
                     </div>
                 </div>
             </form>
         </div>
+
     </section>
 
 
@@ -50,7 +53,8 @@
                     {{#each categories}}
 
                     <tr>
-                        <td>{{name}} <a class="waves-effect waves-light btn delete-button-category"><i
+                        <td>{{name}} <a class="waves-effect waves-light btn delete-button-category btn tooltipped "
+                                data-position="bottom" data-tooltip="Delete Category" id-"delete-btn"><i
                                     class="material-icons" data-id={{id}}>delete</i></a>
                         </td>
                     </tr>

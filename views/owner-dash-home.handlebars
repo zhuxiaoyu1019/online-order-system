@@ -1,6 +1,9 @@
 <body class="dashboard">
-    <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
-            class="material-icons large">queue_play_next</i></a>
+    <a href='/pizzacutter' class="btn-large waves-effect waves-light red btn tooltipped" data-position="bottom"
+        data-tooltip="Exit Dashboard" id="home-button">
+        <i class="material-icons large">meeting_room</i>
+    </a>
+
 
     <h1 class="dashboard-header">Pizza Cutter Control Panel</h1>
 
@@ -13,11 +16,14 @@
                     <div class="card-image">
                         <img
                             src="https://cdn.dribbble.com/users/1787323/screenshots/13124909/media/ddf0a4541de144226b1dc8e03cc81782.png?compress=1&resize=1000x750">
+
                         {{!-- <span class="card-title">Menu Items</span> --}}
+
                         <a href='/pizzacutter/dashboard/product'
                             class="btn-floating halfway-fab waves-effect waves-light red"><i
                                 class="material-icons">add</i></a>
                     </div>
+                    
                     <div class="card-content">
                         <p>Menu Items</p>
                     </div>

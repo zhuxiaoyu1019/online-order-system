@@ -192,10 +192,16 @@ footer {
 
 /*Owner Dashboard*/
 
+
 .dashboard-header {
     text-align: center;
     font-family: 'Bungee', cursive;
     color: #ffffff;
+
+}
+#save-cat-header{
+    font-size: 4vh;
+    font-stretch:extra-expanded;
 }
 
 .dashboard-row {
@@ -217,15 +223,18 @@ footer {
 }
 
 /*Admin edit bar*/
+
+
 .admin_edit_section {
     display:flex;
     margin: 0 auto;
-    padding:10vh;
+    padding: 6vh;
     width: 100%;
     align-content: center;
     position: relative;
-    
+        
 }
+
 
 /* #dashboard-card {
     /* padding-left: 5%;
@@ -272,6 +281,14 @@ footer {
     display: none;
 }
 
-.dash_nav_button{
-   
-}
+
+ /* label color */
+ .input-field label {
+    color: white;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color:white;
+  }
+
+    
