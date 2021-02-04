@@ -1,8 +1,7 @@
 {{!-- catering page --}}
-{{> customer-nav }}
 
 <body class="pages-style">
-
+  {{> customer-nav }}
 
   {{!Here's we add the catering category buttons via Materialize tabs}}
   <div class="row">
@@ -84,12 +83,20 @@
             <p>{{Size}}</p>
           </div>
 
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+            <h4>Product Details</h4>
+            <p>{{description}}</p>
+            <p>{{Size}}</p>
+          </div>
+
         </div>
       </div>
 
       {{/each}}
 
     </div>
-</body>
+  </div>
 
-{{> customer-footer }}
+  {{> customer-footer }}
+</body>

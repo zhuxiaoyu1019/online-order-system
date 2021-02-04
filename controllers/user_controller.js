@@ -16,7 +16,11 @@ router.get("/", (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
-    const { username, password, is_owner } = req.body
+    const {
+        username,
+        password,
+        is_owner
+    } = req.body
     User.create({
         username,
         password,
@@ -27,7 +31,10 @@ router.post("/signup", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-    const { username, password } = req.body
+    const {
+        username,
+        password
+    } = req.body
     User.findOne({
         where: {
             username
@@ -42,7 +49,7 @@ router.post("/login", (req, res) => {
                     username: data.username,
                     is_owner: data.is_owner
                 }
-                res.redirect("/");
+                res.json(data);
             } else {
                 req.session.destroy();
                 res.status(401).send("You have entered an invalid username or password")

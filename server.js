@@ -32,6 +32,10 @@ app.engine("handlebars", exphbs({
 }));
 app.set("view engine", "handlebars");
 
+app.get("/", (req, res) => {
+    res.redirect("/pizzacutter");
+})
+
 const userRoutes = require("./controllers/user_controller");
 app.use("/pizzacutter", userRoutes);
 
@@ -43,6 +47,9 @@ app.use("/pizzacutter/dashboard", ownerRoutes);
 
 const menuRoutes = require("./controllers/menu_controller");
 app.use("/pizzacutter/dashboard", menuRoutes);
+
+const seedRoutes = require("./controllers/seed_controller")
+app.use(seedRoutes);
 
 const PORT = process.env.PORT || 3000;
 db.sequelize.sync({
