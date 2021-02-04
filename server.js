@@ -48,6 +48,9 @@ app.use("/pizzacutter/dashboard", ownerRoutes);
 const menuRoutes = require("./controllers/menu_controller");
 app.use("/pizzacutter/dashboard", menuRoutes);
 
+const seedRoutes = require("./controllers/seed_controller")
+app.use(seedRoutes);
+
 const PORT = process.env.PORT || 3000;
 db.sequelize.sync({
     force: false
