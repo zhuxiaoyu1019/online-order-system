@@ -1,49 +1,65 @@
 <body class="dashboard">
+
+
+
     <div class="row">
         <div class="col s6 back-button">
-            <a href='/pizzacutter/dashboard/' class="btn-floating btn-large waves-effect waves-light red"><i
-                    class="material-icons large">chevron_left</i></a>
+            <button href='/pizzacutter/dashboard/' class="btn-large waves-effect waves-light red admin_nav"><i
+                    class="material-icons dash_nav_button large">home</i></button>
         </div>
+
         <div class="col s6">
-            <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
-                    class="material-icons large">queue_play_next</i></a>
+            <a href='/pizzacutter' class="btn-large waves-effect waves-light red" id="home-button"><i
+                    class="material-icons dash_nav_button large">meeting_room</i></a>
         </div>
+
     </div>
 
 
     <h1 class="dashboard-header">Categories</h1>
 
-    <div class="divider"></div>
-    <div class="section">
+ 
+    <section class="section admin_edit_section">
+        
         <div class="row">
             <form class="col s12" id="category-input">
                 <div class="row">
                     <div class="input-field col s12">
+                     <i class="material-icons prefix">mode_edit</i>   
                         <input id="category-name" type="text">
                         <label for="category-name">Add New Category</label>
                     </div>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="divider"></div>
+    </section>
+
+
     <div class="row">
+
         <div class="col s6">
+
             <table class="highlight category-table-items">
                 <thead>
                     <tr>
                         <th id="save-cat-header">Saved Categories</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     {{#each categories}}
+
                     <tr>
                         <td>{{name}} <a class="waves-effect waves-light btn delete-button-category"><i
                                     class="material-icons" data-id={{id}}>delete</i></a>
                         </td>
                     </tr>
+
                     {{/each}}
+
                 </tbody>
+
+
             </table>
         </div>
     </div>

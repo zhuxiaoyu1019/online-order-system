@@ -200,8 +200,7 @@ footer {
 
 .dashboard-row {
     display: flex;
-
-    /* align-items: center; */
+    justify-content: center;
 }
 
 .dashboard {
@@ -215,6 +214,17 @@ footer {
     margin-top: 5%;
     font-family: 'Bungee', cursive;
     color: #cb4108;
+}
+
+/*Admin edit bar*/
+.admin_edit_section {
+    display:flex;
+    margin: 0 auto;
+    padding:10vh;
+    width: 100%;
+    align-content: center;
+    position: relative;
+    
 }
 
 /* #dashboard-card {
@@ -249,7 +259,7 @@ footer {
 .category-table-items {
     margin-left: 50%;
     font-size: 20pt;
-    color: #ff4f09c5;
+    /* color: #ff4f09c5; */
     /* margin-right: 10%; */
 }
 
@@ -260,4 +270,8 @@ footer {
 
 .hidden {
     display: none;
+}
+
+.dash_nav_button{
+   
 }
