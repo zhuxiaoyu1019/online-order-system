@@ -11,8 +11,6 @@
         </div>
     </div>
 
-
-
     <h1 class="dashboard-header">Update Product</h1>
 
     <div class="divider"></div>
@@ -41,7 +39,7 @@
                         {{else}}
                         <input class="in-stock" name="in-stock" type="checkbox">
                         {{/if}}
-                        <span class="lever" id="in-stock"></span>
+                        <span class="lever"></span>
                         In Stock
                     </label>
                 </div>
@@ -88,7 +86,11 @@
                 {{#each sizeWithPrice}}
                 <tr>
                     <td>{{name}}</td>
-                    <td><input type="text" class="price" data-id={{id}} value={{price}}></td>
+                    <td>
+                        <form class="sizePriceTbl">
+                            <input type="text" class="price" data-id={{id}} value={{price}}>
+                        </form>
+                    </td>
                     <td><a class="waves-effect waves-light btn delete-button" data-id={{id}}><i
                                 class="material-icons">delete</i></a></td>
                 </tr>>
@@ -106,3 +108,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
     <script src="/js/edit-product.js"></script>
+</body>

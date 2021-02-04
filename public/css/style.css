@@ -235,3 +235,7 @@ footer {
     background-color: #303032;
     color: white;
 }
+
+.hidden {
+    display: none;
+}

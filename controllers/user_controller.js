@@ -51,7 +51,7 @@ router.post("/login", (req, res) => {
                     username: data.username,
                     is_owner: data.is_owner
                 }
-                res.json(data);
+                res.redirect("/");
             } else {
                 req.session.destroy();
                 res.status(401).send("You have entered an invalid username or password")
