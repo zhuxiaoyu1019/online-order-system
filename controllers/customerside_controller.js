@@ -24,7 +24,7 @@ router.get("/about", (req, res) => {
 
 router.get("/menu", (req, res) => {
     db.Product.findAll({
-        include: [db.Category]
+        include: [db.Size, db.Category]
     }).then(function (data) {
 
         var productArray = []
@@ -39,17 +39,29 @@ router.get("/menu", (req, res) => {
             data.forEach(element => {
                 var item = element.toJSON()
                 categoryArray.push(item)
-            })
-            var hbsObject = {
-                categories: categoryArray,
-                products: productArray
-            }
+            });
 
-            console.log(JSON.stringify(hbsObject, null, 2));
-            return res.render("./customer-pages/menu", hbsObject);
-        });
+            db.Size.findAll().then(function (data) {
+                var sizeArray = []
+                data.forEach(element => {
+                    var item = element.toJSON()
+                    sizeArray.push(item)
+                })
+                var hbsObject = {
+                    categories: categoryArray,
+                    products: productArray,
+                    sizes: sizeArray
+                }
+                console.log(JSON.stringify(hbsObject, null, 2));
+                return res.render("./customer-pages/menu", hbsObject);
+
+            })
+
+        })
+
     });
 });
+
 
 router.get("/catering", (req, res) => {
     db.Product.findAll({
