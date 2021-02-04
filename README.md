@@ -2,7 +2,7 @@
 
 # Project Title
 
-:pizza: Pizza Cutter :pizza:
+🍕 Pizza Cutter 🍕
 
 ## Links
 
