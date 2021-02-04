@@ -1,7 +1,7 @@
 {{!-- menu --}}
-{{> customer-nav }}
 
 <body class="pages-style">
+  {{> customer-nav }}
 
   <h1 class="title">Menu Items</h1>
   <div class="divider"></div>
@@ -9,18 +9,18 @@
   {{!Here's we add the menu category buttons via Materialize tabs}}
   {{!-- <div class="row">
 
-    <div class="col s12">
+    {{!-- <div class="col s12">
       <ul class="tabs">
         <li class="tab col s2"><a href="#test1">Pizza</a></li>
-        <li class="tab col s2"><a class="active" href="#test2">Submarines</a></li>
+        <li class="tab col s2"><a href="#test2">Submarines</a></li>
         <li class="tab col s2"><a href="#test3">Salads</a></li>
         <li class="tab col s2"><a href="#test4">Wings</a></li>
         <li class="tab col s2"><a href="#test5">Stix</a></li>
         <li class="tab col s2"><a href="#test6">Extras</a></li>
       </ul>
-    </div>
+    </div> --}}
 
-    <div id="test1" class="col s12 center title">
+    {{!-- <div id="test1" class="col s12 center title">
       <h1>Pizza</h1>
     </div>
 
@@ -43,11 +43,7 @@
     <div id="test6" class="col s12 center title">
       <h1>Extras</h1>
     </div> --}}
-
-
-    {{!Cards}}
-
-    <div class="row menu-card-row">
+    <<<<<<< HEAD {{!Cards}} <div class="row menu-card-row">
       {{#each products}}
 
       <div class="col s3 m4 menu-item-card">
@@ -57,14 +53,18 @@
             {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
             <img src="/images/pizza-yum.jpeg">
 
-
-            <a class="btn-floating halfway-fab waves-effect waves-light red"><i
-                class="activator material-icons">expand_more</i></a>
+            =======
 
           </div>
+          {{!Cards}}
+          >>>>>>> finalize
 
-          <div class="card-content">
-            <span class="card-title menu-card-title">{{name}}</span>
+          <h1 class="title">Menu Items</h1>
+
+          <div class="row menu-card-row">
+
+            <<<<<<< HEAD <div class="card-content">
+              <span class="card-title menu-card-title">{{name}}</span>
 
           </div>
 
@@ -84,10 +84,45 @@
 
           </div>
         </div>
+        =======
+        {{#each products}}
+
+        <div class="card menu-card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="/images/pizza-yum.jpeg">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{name}}<i
+                class="material-icons right">more_vert</i></span>
+            {{!-- <p><a href="#">This is a link</a></p> --}}
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">{{name}}<i class="material-icons right">close</i></span>
+            <p>{{description}}</p>
+          </div>
+        </div>
+        {{!--
+        <div class="card small card-menu-item">
+          <div class="card">
+            {{!Based on user click events, the appropriate images should pass through this part of the menu-item-card}}
+            <img src="/images/pizza-yum.jpeg" class="menu-card-image">
+            <span class="card-title">{{name}}</span>
+            <a class="btn-floating halfway-fab waves-effect waves-light red"><i
+                class="activator material-icons">expand_more</i></a>
+            >>>>>>> finalize
+          </div>
+
+          <div class="card-content">
+            <p>{{description}}</p>
+          </div>
+        </div> --}}
+
+        <<<<<<< HEAD </div>
+          {{> customer-footer }}
+          =======
+          {{/each}}
       </div>
 
-      {{/each}}
-
-    </div>
-    {{> customer-footer }}
+      {{> customer-footer }}
+      >>>>>>> finalize
 </body>
