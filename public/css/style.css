@@ -25,8 +25,8 @@
 }
 
 #pizza-img-container1 {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,13 +84,44 @@
     letter-spacing: 1px;
 }
 
+.menu-card {
+    width: 70%;
+    display: inline-block;
+    margin: 2%;
+    height: 100%;
+}
+
+.card-reveal {
+    color: rgb(78, 75, 75);
+}
+
+.menu-card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 5%;
+}
+
+.menu-card-title {
+    font-family: 'Saira Stencil One', cursive;
+    letter-spacing: 2px;
+    color: rgb(78, 75, 75);
+}
+
 #adjust-about-p {
     margin-top: 11%;
 }
 
-/* .input-field input[type=email]:focus+label {
-    color: rgb(240, 219, 219);
-} */
+.input-field input[type]:focus:not([readonly])+label, .input-field textarea:focus:not([readonly])+label {
+    color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+  
+.input-field input[type]:focus:not([readonly]), .input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 1px 0 0 #ffffff;
+    color: #ffffff;
+}
 
 .input-field .prefix.active {
     color: rgb(202, 65, 65);
@@ -105,6 +136,15 @@
     color: #ffffff !important;
 }
 
+.login-input {
+    width: 50%;
+    text-align: center;
+}
+
+#login-btn {
+    width: 30%;
+    text-align: center;
+}
 
 footer {
     text-align: left;
@@ -119,9 +159,12 @@ footer {
 
 
 /* Navigation*/
+.sidenav-trigger {
+    cursor: pointer;
+}
+
 .nav_bar {
     background-color: #303032;
-    height: 10vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
     font-weight: 600;
 
@@ -154,12 +197,39 @@ footer {
     font-size: 25px;
 }
 
-/*Owner Dashboard*/
+.tabs .tab a {
+    color: rgba(255, 255, 255, 0.7);
+    /*Custom Text Color*/
+}
 
+.tabs .tab a:hover {
+    color: #eb5d5d;
+    /*Custom Color On Hover*/
+}
+
+.tabs .tab a:focus.active {
+    color: #eb5d5d;
+    /*Custom Text Color While Active*/
+    background-color: #3C3636;
+    /*Custom Background Color While Active*/
+}
+
+.tabs .indicator {
+    background-color: #eb5d5d;
+    /*Custom Color Of Indicator*/
+}
+
+/*Owner Dashboard*/
 .dashboard-header {
     text-align: center;
     font-family: 'Bungee', cursive;
     color: #ffffff;
+}
+
+.dashboard-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dashboard {
@@ -169,17 +239,27 @@ footer {
 }
 
 .dashboard-grid {
-    margin-top: 5%;
+    width: 30%;
+    margin: 5% 2% 0 2%;
     font-family: 'Bungee', cursive;
     color: #cb4108;
+
 }
 
-#dashboard-card {
-    /* padding-left: 5%;
-    padding-right: 0%; */
+html {
+    position: relative;
 }
 
-#home-button,
+#exit-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ffffff;
+    font-size: 3rem;
+    margin: 10px;
+    cursor: pointer;
+}
+
 #new-product-btn,
 #save-button {
     float: right;
@@ -213,8 +293,4 @@ footer {
 .box {
     background-color: #303032;
     color: white;
-}
-
-.hidden {
-    display: none;
 }

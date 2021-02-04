@@ -1,64 +1,44 @@
 <body class="dashboard">
-    <a href='/pizzacutter' class="btn-floating btn-large waves-effect waves-light red" id="home-button"><i
-            class="material-icons large">queue_play_next</i></a>
+    <a><i id="exit-icon" class="material-icons">exit_to_app</i></a>
 
     <h1 class="dashboard-header">Pizza Cutter Control Panel</h1>
 
     <div class="divider"></div>
 
-    <div class="row">
-        <div class="col s4 dashboard-grid">
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-image">
-                        <img
-                            src="https://cdn.dribbble.com/users/1787323/screenshots/13124909/media/ddf0a4541de144226b1dc8e03cc81782.png?compress=1&resize=1000x750">
-                        {{!-- <span class="card-title">Menu Items</span> --}}
-                        <a href='/pizzacutter/dashboard/product'
-                            class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Menu Items</p>
-                    </div>
+    <div class="dashboard-row">
+        <div class="dashboard-grid">
+            <div class="card dashboard-card">
+                <div class="card-image">
+                    <img
+                        src="https://cdn.dribbble.com/users/1787323/screenshots/13124909/media/ddf0a4541de144226b1dc8e03cc81782.png?compress=1&resize=1000x750">
+                    {{!-- <span class="card-title">Menu Items</span> --}}
+                    <a href='/pizzacutter/dashboard/product'
+                        class="btn-floating halfway-fab waves-effect waves-light red"><i
+                            class="material-icons">add</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Menu Items</p>
                 </div>
             </div>
         </div>
-        <div class="col s4 dashboard-grid">
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-image">
-                        <img
-                            src="https://cdn.dribbble.com/users/1787323/screenshots/14807453/media/622bdb01ecfa000680921b69617687f5.png">
-                        {{!-- <span class="card-title">Categories</span> --}}
-                        <a href='/pizzacutter/dashboard/category'
-                            class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Categories</p>
-                    </div>
+        <div class="dashboard-grid">
+            <div class="card dashboard-card">
+                <div class="card-image">
+                    <img
+                        src="https://cdn.dribbble.com/users/1787323/screenshots/14807453/media/622bdb01ecfa000680921b69617687f5.png">
+                    {{!-- <span class="card-title">Categories</span> --}}
+                    <a href='/pizzacutter/dashboard/category'
+                        class="btn-floating halfway-fab waves-effect waves-light red"><i
+                            class="material-icons">add</i></a>
                 </div>
-            </div>
-        </div>
-        <div class="col s4 dashboard-grid">
-            <div class="col s12 m6">
-                <div class="card">
-                    <div class="card-image">
-                        <img
-                            src="https://cdn.dribbble.com/users/1787323/screenshots/13124909/media/2379eb2532a6c783accb2d5b932c1a87.png?compress=1&resize=1000x750">
-                        {{!-- <span class="card-title">Extras</span> --}}
-                        <a href='/pizzacutter/dashboard/extra'
-                            class="btn-floating halfway-fab waves-effect waves-light red"><i
-                                class="material-icons">add</i></a>
-                    </div>
-                    <div class="card-content">
-                        <p>Extras</p>
-                    </div>
+                <div class="card-content">
+                    <p>Categories</p>
                 </div>
             </div>
         </div>
     </div>
 
-    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/js/login.js"></script>
 </body>
