@@ -84,6 +84,20 @@
     letter-spacing: 1px;
 }
 
+.menu-card {
+    width: 20%;
+    display: inline-block;
+    margin: 2%;
+    height: 100%;
+}
+
+.menu-card-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+
 #adjust-about-p {
     margin-top: 11%;
 }
@@ -162,6 +176,12 @@ footer {
     color: #ffffff;
 }
 
+.dashboard-row {
+    display: flex;
+
+    /* align-items: center; */
+}
+
 .dashboard {
     font-family: 'Open Sans', sans-serif;
     background: #3a3236;
@@ -169,15 +189,16 @@ footer {
 }
 
 .dashboard-grid {
+    justify-content: center;
     margin-top: 5%;
     font-family: 'Bungee', cursive;
     color: #cb4108;
 }
 
-#dashboard-card {
+/* #dashboard-card {
     /* padding-left: 5%;
     padding-right: 0%; */
-}
+
 
 #home-button,
 #new-product-btn,
