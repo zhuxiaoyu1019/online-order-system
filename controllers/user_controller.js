@@ -35,8 +35,6 @@ router.post("/login", (req, res) => {
         username,
         password
     } = req.body
-    console.log(req.body)
-    console.log("hannah was here")
     User.findOne({
         where: {
             username
@@ -51,7 +49,7 @@ router.post("/login", (req, res) => {
                     username: data.username,
                     is_owner: data.is_owner
                 }
-                res.redirect("/");
+                res.json(data);
             } else {
                 req.session.destroy();
                 res.status(401).send("You have entered an invalid username or password")

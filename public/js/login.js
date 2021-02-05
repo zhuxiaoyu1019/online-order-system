@@ -23,7 +23,15 @@ $(document).ready(function () {
             console.log(err);
             alert("login failed!")
         })
-    })
+    });
+
+    $("#exit-icon").click(() => {
+        $.get("/pizzacutter/logout").then(() => {
+            console.log("logged out");
+            window.location.href = "/pizzacutter"
+        })
+    });
+
     // $("#signup").submit(event => {
     //     event.preventDefault();
     //     $.post("/signup", {

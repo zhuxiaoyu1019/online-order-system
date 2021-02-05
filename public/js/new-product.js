@@ -3,9 +3,9 @@ $(document).ready(function () {
 
     // $(document).on("click", ".edit-button", editProduct);
     $("#in-stock").on("change", switchStockState);
-    $("#product-size").on("change", selectedSize);
-    $(document).on("submit", "#sizePriceTbl", priceUpdate);
-    $(document).on("click", ".delete-button", deleteSize);
+    // $("#product-size").on("change", selectedSize);
+    // $(document).on("submit", "#sizePriceTbl", priceUpdate);
+    // $(document).on("click", ".delete-button", deleteSize);
     $("#submit-update").click(updateForm);
 
     document.getElementById("upload_widget").addEventListener("click", function (e) {

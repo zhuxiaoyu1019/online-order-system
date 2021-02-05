@@ -25,8 +25,8 @@
 }
 
 #pizza-img-container1 {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -112,9 +112,16 @@
     margin-top: 11%;
 }
 
-/* .input-field input[type=email]:focus+label {
-    color: rgb(240, 219, 219);
-} */
+.input-field input[type]:focus:not([readonly])+label, .input-field textarea:focus:not([readonly])+label {
+    color: #ffffff;
+    transition: 0.2s ease-in-out;
+}
+  
+.input-field input[type]:focus:not([readonly]), .input-field textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #ffffff;
+    box-shadow: 0 1px 0 0 #ffffff;
+    color: #ffffff;
+}
 
 .input-field .prefix.active {
     color: rgb(202, 65, 65);
@@ -129,6 +136,15 @@
     color: #ffffff !important;
 }
 
+.login-input {
+    width: 50%;
+    text-align: center;
+}
+
+#login-btn {
+    width: 30%;
+    text-align: center;
+}
 
 footer {
     text-align: left;
@@ -143,9 +159,12 @@ footer {
 
 
 /* Navigation*/
+.sidenav-trigger {
+    cursor: pointer;
+}
+
 .nav_bar {
     background-color: #303032;
-    height: 10vh;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, fantasy;
     font-weight: 600;
 
@@ -201,8 +220,6 @@ footer {
 }
 
 /*Owner Dashboard*/
-
-
 .dashboard-header {
     text-align: center;
     font-family: 'Bungee', cursive;
@@ -217,6 +234,7 @@ footer {
 .dashboard-row {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .dashboard {
@@ -226,32 +244,27 @@ footer {
 }
 
 .dashboard-grid {
-    justify-content: center;
-    margin-top: 5%;
+    width: 30%;
+    margin: 5% 2% 0 2%;
     font-family: 'Bungee', cursive;
     color: #cb4108;
+
 }
 
-/*Admin edit bar*/
-
-
-.admin_edit_section {
-    display:flex;
-    margin: 0 auto;
-    padding: 6vh;
-    width: 100%;
-    align-content: center;
+html {
     position: relative;
-        
 }
 
+#exit-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #ffffff;
+    font-size: 3rem;
+    margin: 10px;
+    cursor: pointer;
+}
 
-/* #dashboard-card {
-    /* padding-left: 5%;
-    padding-right: 0%; */
-
-
-#home-button,
 #new-product-btn,
 #save-button {
     float: right;
@@ -286,19 +299,3 @@ footer {
     background-color: #303032;
     color: white;
 }
-
-.hidden {
-    display: none;
-}
-
-
- /* label color */
- .input-field label {
-    color: white;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color:white;
-  }
-
-    

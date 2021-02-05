@@ -52,7 +52,7 @@ router.get("/menu", (req, res) => {
                     products: productArray,
                     sizes: sizeArray
                 }
-                console.log(JSON.stringify(hbsObject, null, 2));
+                // console.log(JSON.stringify(hbsObject, null, 2));
                 return res.render("./customer-pages/menu", hbsObject);
 
             })
