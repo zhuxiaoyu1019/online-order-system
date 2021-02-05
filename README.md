@@ -34,7 +34,7 @@ Handlebars and Materialize CSS, Node and protected API key with environment vari
 ## Features
 This application includes a functional owner dashboard with login capactities. This application is straight-forward, and intuitive. Create, render, upate, and delete categories and corresponding specification including but not limited to, name, description, availabiliy, image, size, and price. 
 
-Consequently, this application is able to safely store and render up-to-date menu information and keep our customer side interface up-to-date. 
+Consequently, this application is able to safely store and render up-to-date menu information and keep our customer side interface up-to-date. g
 
 
 ## Credits
